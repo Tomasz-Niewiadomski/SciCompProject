@@ -8,9 +8,9 @@
 5. Money I guess?
 
 ### What have we done:
-nothing yet 
+#### Paolo
+I wrote a very basic class and recursive algorithm. didn't do the dynamic programming one yet
 
 ### What we are doing atm:
 #### Paolo 
-Starting to implement a naive Regex search with dynamic programming as in https://www.youtube.com/watch?v=HAA8mgxlov8
-
+nothing, probably I'll continue tomorrow (Wed 18/01)
