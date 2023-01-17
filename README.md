@@ -12,5 +12,5 @@ nothing yet
 
 ### What we are doing atm:
 #### Paolo 
-Starting to implement a naive Regex search with dynamic progrmming as in https://www.youtube.com/watch?v=HAA8mgxlov8
+Starting to implement a naive Regex search with dynamic programming as in https://www.youtube.com/watch?v=HAA8mgxlov8
 
