@@ -1,19 +1,16 @@
-# Berlin public transport simulation
+# RegEx matching/searching algorithms
 
-### Current ideas:
+### The plan:
+1. Find different regex searching algorithms
+2. Implement the viable ones
+3. Confront them with public libraries/softwares
+4. ???
+5. Money I guess?
 
-The program will simulate the existant Berlin (and possibly other cities) public transport system, in order to determine the _best_ route
-between two selected stations. 
-The _best_ route is selected based on multiple criteria, for instance:
-    - The shortest distance,
-    - The shortest amount of time,
-    - The least amount of energy used by the network.
+### What have we done:
+nothing yet 
 
-### Factors accounted for in the model:
-1. The optimal route is different based on the day of the week and the time of the day,
-2. Waiting for the train to arrive during transit,
-
-### Approximations assumed in the model:
-1. Trains take no time between arriving and leaving the stations,
-2. **Start** and **end** position must be train stations,
+### What we are doing atm:
+#### Paolo 
+Starting to implement a naive Regex search with dynamic progrmming as in https://www.youtube.com/watch?v=HAA8mgxlov8
 
