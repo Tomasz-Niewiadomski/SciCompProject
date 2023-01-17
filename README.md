@@ -10,7 +10,7 @@
 ## What have we done:
 ### Paolo
 I wrote a very basic class and recursive algorithm. didn't do the dynamic programming one yet. 
-#### I DID NOT TEST ANYTHING YET!!! it his correct at compile time but idk if it actually works
+#### I DID NOT TEST ANYTHING YET!!! it is correct at compile time but idk if it actually works
 
 ## What we are doing atm:
 ### Paolo 
