@@ -11,10 +11,10 @@
 #include <vector>
 #include <string>
 
-class naiveRegex{
+class naiveRegex {
 protected:
 
-	std::string const expr;
+	std::string expr;
 
 public:
 
@@ -22,7 +22,7 @@ public:
 
 	naiveRegex(std::string s);
 
-	bool naiveMatch(std::string const& match, int i=0, int j=0);
+	bool naiveMatch(std::string const& match, int i = 0, int j = 0);
 	// naive recursive matching
 		// currently supports only [.] and [*] no other special characters
 
