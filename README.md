@@ -10,6 +10,7 @@
 ## What have we done:
 ### Paolo
 The naive class is somewhat done, the recursive and dynamical programming algorithms work for searching (i.e. matching with .* ) but not matching, which is a bit odd.
+I uploaded a very simple test file + a library.txt text
 
 ## What we are doing atm:
 ### Paolo 
