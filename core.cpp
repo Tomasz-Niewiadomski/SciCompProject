@@ -106,47 +106,69 @@ class State
 		}
 };
 
-// To be finished 
-//	class EngineNFA
-//	{
-//	  public:
-//		std::map<std::string, State> states;
-//		State startState;
-//		State endState;
-//
-//		void setStartState(State givenState)
-//		{
-//		  startState = givenState;
-//		}
-//
-//		void setEndState(std::string name)
-//		{
-//		 states[name] = State(name); 
-//		}
-//
-//		void addTransition(State fromState, State toState, Matcher matcher)
-//		{
-//		  // Uses the addTransition() from State class
-//		  states[fromState].addTransition(states[toState], matcher);
-//		}
-//
-//		void compute(std::string)
-//		{
-//
-//		}
-//
-//	};
+ //To be finished 
+//class EngineNFA
+//{
+  //public:
+	
+	//std::map<std::string, State> states;
+	//State startState;
+	//State endState;
 
+	//void setStartState(State givenState)
+	//{
+	  //startState = givenState;
+	//}
 
+	//void setEndState(std::string name)
+	//{
+	 //states[name] = State(name); 
+	//}
+
+	//void addTransition(State fromState, State toState, Matcher matcher)
+	//{
+	  //// Uses the addTransition() from State class
+	  //states[fromState].addTransition(states[toState], matcher);
+	//}
+
+	//void compute(std::string)
+	//{
+
+	//}
+
+//};
+
+	typedef std::map<std::string, Matcher> Mmap;
+	
+	
+	Mmap states(std::string &key, Matcher &value)
+	{
+			std::map<std::string, Matcher> map_to_be_returned;
+			map_to_be_returned[key] =  value;
+			return map_to_be_returned;
+	}
 int main()
 {
+	std::map<std::string, Matcher> states;
 	State s1("s1");
 	State s2("s2");
 	CharacterMatcher c1("c");
 	EpsilonMatcher c2;
-	std::string label = c1.printLabel();
-	std::cout << "Label of c1 is : " << label << " (it should be 'c')" << std::endl;
-	s1.addTransition(s2, c1);
+	s1.addTransition(s2, c1); // transition from s1 -> s2 with matcher "c"
 	
-	//std::cout << "Matcher of the transition from s1 to: " << trans1_to  << " is : " << trans1_matcher_label << " and does it match 'c'? : " << matches_question << std::endl;
+	
+	//std::cout << "Transitions from the state: " << s1.stateName << " to the state: " << s1.stateTransitions[0].toState.stateName << " with matcher: " << s1.stateTransitions[0].matcher.printLabel() << std::endl;
+	
+	
+	
+	Mmap test_map;
+	std::string input_text = "abc";
+	test_map = states(input_text, c1);
+	Matcher c1_check = test_map["abc"];
+	
+	std:: cout << c1_check.printLabel() << std::endl;
+	//std::cout << states["abc"].printLabel() << std::endl;
+	//std::cout << states["s1"].stateName << std::endl;
 }
+
+
