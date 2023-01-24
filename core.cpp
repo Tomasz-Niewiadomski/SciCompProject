@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <string>
-#include <tuple>
+#include <map>
 
 // Turn this into an abstract class or somethin
 //
@@ -82,52 +82,52 @@ class State
 {
 	public:
 		std::string stateName;
-		std::vector<std::tuple<State, Matcher> > stateTransitions;
+		std::vector<std::map<State, Matcher> > stateTransitions;
 		
 		State(std::string name)
 		{
 			stateName = name;
 		}
 
-		void addTransition(std::string toState, Matcher matcher)
+		void addTransition(State toState, Matcher matcher)
 		{
-			std::tuple<State, Matcher> transition;
-			transition = {toState, matcher};	
+			std::map<State, Matcher> transition;
+			transition[toState] = matcher;	
 			stateTransitions.push_back(transition);
 		}
 
 };
 
 // To be finished 
-class EngineNFA
-{
-  public:
-    std::map<std::string, State> states;
-    State startState;
-    State endState;
-
-    void setStartState(State givenState)
-    {
-      startState = givenState;
-    }
-
-    void setEndState(std::string name)
-    {
-     states[name] = State(name); 
-    }
-
-    void addTransition(State fromState, State toState, Matcher matcher)
-    {
-      // Uses the addTransition() from State class
-      states[fromState].addTransition(states[toState], matcher);
-    }
-
-    void compute(std::string)
-    {
-
-    }
-
-};
+//	class EngineNFA
+//	{
+//	  public:
+//		std::map<std::string, State> states;
+//		State startState;
+//		State endState;
+//
+//		void setStartState(State givenState)
+//		{
+//		  startState = givenState;
+//		}
+//
+//		void setEndState(std::string name)
+//		{
+//		 states[name] = State(name); 
+//		}
+//
+//		void addTransition(State fromState, State toState, Matcher matcher)
+//		{
+//		  // Uses the addTransition() from State class
+//		  states[fromState].addTransition(states[toState], matcher);
+//		}
+//
+//		void compute(std::string)
+//		{
+//
+//		}
+//
+//	};
 
 
 int main()
