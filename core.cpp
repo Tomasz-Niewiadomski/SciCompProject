@@ -78,24 +78,32 @@ class EpsilonMatcher: public Matcher
 };
 
 
+		
 class State
 {
-	public:
-		std::string stateName;
-		std::vector<std::map<State, Matcher> > stateTransitions;
+	struct Transition
+	{
+		State &toState;
+		Matcher &matcher;
 		
+		Transition(State &givenState, Matcher &givenMatcher) : toState(givenState), matcher(givenMatcher){}
+	};
+	
+	public:
+		
+		std::string stateName;
+		std::vector<Transition> stateTransitions;
+
 		State(std::string name)
 		{
 			stateName = name;
 		}
 
-		void addTransition(State toState, Matcher matcher)
+		void addTransition(State &givenToState, Matcher &givenMatcher)
 		{
-			std::map<State, Matcher> transition;
-			transition[toState] = matcher;	
+			Transition transition(givenToState, givenMatcher);
 			stateTransitions.push_back(transition);
 		}
-
 };
 
 // To be finished 
@@ -132,25 +140,13 @@ class State
 
 int main()
 {
-	//State s1("s1");
-	//CharacterMatcher c1("c");
-	//EpsilonMatcher c2;
-	//std::string label = c1.printLabel();
-	//
-	//s1.addTransition("s2", c1);
-	//
-	//std::tuple<std::string, Matcher> t;
-
-	//t = s1.stateTransitions[0];
-
-	//std::string trans1_to = std::get<0>(t);
-	//Matcher trans1_matcher = std::get<1>(t);
-
-	//// always returns 'false'
-	//bool matches_question = trans1_matcher.matches("c");
-	//
-	//// always returns 'unidentified matcher'
-	//std::string trans1_matcher_label = trans1_matcher.printLabel();
-	//
+	State s1("s1");
+	State s2("s2");
+	CharacterMatcher c1("c");
+	EpsilonMatcher c2;
+	std::string label = c1.printLabel();
+	std::cout << "Label of c1 is : " << label << " (it should be 'c')" << std::endl;
+	s1.addTransition(s2, c1);
+	
 	//std::cout << "Matcher of the transition from s1 to: " << trans1_to  << " is : " << trans1_matcher_label << " and does it match 'c'? : " << matches_question << std::endl;
 }
