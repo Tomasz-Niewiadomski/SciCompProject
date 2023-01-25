@@ -1,13 +1,15 @@
-#include "State.hpp"
-#include "Matcher.cpp"
+#include "State.h"
+#include <string>
+#include <vector>
+#include "Matcher.h"
 
-State(std::string name)
+State::State(std::string name)
 {
 	stateName = name;
 }
-void addTransition(std::string toState, Matcher matcher)
+
+void State::addTransition(State& givenToState, Matcher& givenMatcher)
 {
-	std::tuple<State, Matcher> transition;
-	transition = {toState, matcher};	
+	Transition transition(givenToState, givenMatcher);
 	stateTransitions.push_back(transition);
 }

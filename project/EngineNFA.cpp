@@ -1,35 +1,26 @@
-#include <map>
-#include <string>
-#include "State.hpp"
-#include  "Matcher.hpp"
+#include "EngineNFA.h"
+#include<string>
+#include<map>
+#include "Matcher.h"
+#include "State.h"
 
-
-class EngineNFA
+void EngineNFA::setStartState(State givenState)
 {
-  public:
-    std::map<std::string, State> states;
-    State startState;
-    State endState;
+	startState = givenState;
+};
 
-    void setStartState(State givenState)
-    {
-      startState = givenState;
-    }
+void EngineNFA::setEndState(std::string name)
+{
+	states[name] = State(name);
+};
 
-    void setEndState(std::string name)
-    {
-     states[name] = State(name); 
-    }
+void EngineNFA::addTransition(State fromState, State toState, Matcher matcher)
+{
+	//// Uses the addTransition() from State class
+	//states[fromState].addTransition(states[toState], matcher);
+};
 
-    void addTransition(State fromState, State toState, Matcher matcher)
-    {
-      // Uses the addTransition() from State class
-      states[fromState].addTransition(states[toState], matcher);
-    }
-	
-	// The elephant in the room
-    void compute(std::string)
-    {
+void EngineNFA::compute(std::string)
+{
 
-    }
 };
