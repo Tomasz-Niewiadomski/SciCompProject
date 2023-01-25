@@ -13,8 +13,9 @@ Let's split the project into phases:
 
 ## What have we done:
 ### Paolo
-The naive class is somewhat done, the recursive and dynamical programming algorithms work for searching (i.e. matching with .* ) but not matching, which is a bit odd.
-I uploaded a very simple test file + a library.txt text
+Divided everything in .cpp and .h and created the makefile. 
+I couldn't solve the isuue with the transition struct. maybe we can just switch back to a tuple?
+We'll definitely need pointers for the map, but I'm convinced simply using smart/unique ptr will be fine.
 ### Tomasz
 
 ### Emre
