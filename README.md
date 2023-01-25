@@ -29,9 +29,7 @@ We'll definitely need pointers for the map, but I'm convinced simply using smart
 ### Paolo 
 
 ### Tomasz
-- Throughout this weekend, I will try to implement the state class; the matcher class; and the NFA engine class, without the search() function. 
-
-The search() function inside the NFA engine class will probably be the hardest part of this phase.
+- Finishing up the Classes. Once that's done I'm moving on to the search() functiona
 
 ### Emre
 
