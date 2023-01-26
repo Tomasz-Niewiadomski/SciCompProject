@@ -21,8 +21,6 @@ class EngineNFA
 
 	void addTransition(int fromState, int toState, Matcher &matcher);
 
-	void compute(std::string);
-	
-
+	bool compute(std::string string);
 };
 

@@ -8,18 +8,19 @@ class State
 
 	struct Transition
 	{
-		State& toState;
+		int toState;
 		Matcher& matcher;
 
-		Transition(State& givenState, Matcher& givenMatcher) : toState(givenState), matcher(givenMatcher) {}
+		Transition(int givenState, Matcher& givenMatcher) : toState(givenState), matcher(givenMatcher) {}
 	};
 public:
 
 	std::string stateName;
 	std::vector<Transition> stateTransitions;
 
+	State();
 	State(std::string name);
 
-	void addTransition(State& givenToState, Matcher& givenMatcher);
+	void addTransition(int givenToState, Matcher& givenMatcher);
 };
 
