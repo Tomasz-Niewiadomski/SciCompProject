@@ -113,8 +113,15 @@ class EngineNFA
 	public:
 
 	std::vector<State> states;
-	int startState = 0;
-	int endState = 0;
+	int startState;
+	int endState;
+
+
+	EngineNFA()
+	{
+		startState = 0;
+		startState = 0;
+	}
 
 	void addState(State state)
 	{
