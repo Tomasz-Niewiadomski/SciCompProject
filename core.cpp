@@ -60,17 +60,17 @@ class CharacterMatcher: public Matcher
 class EpsilonMatcher: public Matcher
 {
     public:
-    	
+
     	bool matches(std::string character) override
     	{
     		return true;
     	}
-                                                         
+
     	bool isEpsilon() override
     	{
     		return true;
     	}
-                                                         
+
   	std::string printLabel() override
     	{
     		return "epsilon";
@@ -78,19 +78,19 @@ class EpsilonMatcher: public Matcher
 };
 
 
-		
+
 class State
 {
 	struct Transition
 	{
 		State &toState;
 		Matcher &matcher;
-		
+
 		Transition(State &givenState, Matcher &givenMatcher) : toState(givenState), matcher(givenMatcher){}
 	};
-	
+
 	public:
-		
+
 		std::string stateName;
 		std::vector<Transition> stateTransitions;
 
@@ -104,71 +104,59 @@ class State
 			Transition transition(givenToState, givenMatcher);
 			stateTransitions.push_back(transition);
 		}
+
 };
 
- //To be finished 
-//class EngineNFA
-//{
-  //public:
-	
-	//std::map<std::string, State> states;
-	//State startState;
-	//State endState;
+// How about we assume that the first vec element is the starting state & the last vec element is the ending state?
+class EngineNFA
+{
+	public:
 
-	//void setStartState(State givenState)
-	//{
-	  //startState = givenState;
-	//}
+	std::vector<State> states;
+	int startState = 0;
+	int endState = 0;
 
-	//void setEndState(std::string name)
-	//{
-	 //states[name] = State(name); 
-	//}
-
-	//void addTransition(State fromState, State toState, Matcher matcher)
-	//{
-	  //// Uses the addTransition() from State class
-	  //states[fromState].addTransition(states[toState], matcher);
-	//}
-
-	//void compute(std::string)
-	//{
-
-	//}
-
-//};
-
-	typedef std::map<std::string, Matcher> Mmap;
-	
-	
-	Mmap states(std::string &key, Matcher &value)
+	void addState(State state)
 	{
-			std::map<std::string, Matcher> map_to_be_returned;
-			map_to_be_returned[key] =  value;
-			return map_to_be_returned;
+		states.push_back(State(state));
 	}
+
+	void declareStates(std::vector<State> declaredStates)
+	{
+		for (int i = 0; i < declaredStates.size(); i++)
+		{
+			addState(declaredStates[i]);
+		}
+		if (states.size() != 0)
+			{
+				endState = states.size()-1;
+			}
+	}
+	// Stupid workaround: state q0 has index 0, q1 has index 1, etc...
+	void addTransition(int fromState, int toState, Matcher &matcher)
+		{
+			states[fromState].addTransition(states[toState], matcher);
+		}
+
+	void compute(std::string)
+		{
+
+		}
+};
+
 int main()
 {
-	std::map<std::string, Matcher> states;
-	State s1("s1");
-	State s2("s2");
+	EngineNFA nfa;
+	std::vector<State> states_vec{State("q0"), State("q1"), State("q2")};
+
+	nfa.declareStates(states_vec);
+
 	CharacterMatcher c1("c");
 	EpsilonMatcher c2;
-	s1.addTransition(s2, c1); // transition from s1 -> s2 with matcher "c"
-	
-	
-	//std::cout << "Transitions from the state: " << s1.stateName << " to the state: " << s1.stateTransitions[0].toState.stateName << " with matcher: " << s1.stateTransitions[0].matcher.printLabel() << std::endl;
-	
-	
-	
-	Mmap test_map;
-	std::string input_text = "abc";
-	test_map = states(input_text, c1);
-	Matcher c1_check = test_map["abc"];
-	
-	std:: cout << c1_check.printLabel() << std::endl;
-	//std::cout << states["abc"].printLabel() << std::endl;
-	//std::cout << states["s1"].stateName << std::endl;
+
+	nfa.addTransition(0, 1, c1);
+	nfa.addTransition(1, 0, c2);
+	std::cout << nfa.states[0].stateTransitions[0].matcher.printLabel() << std::endl;
+	std::cout << nfa.states[1].stateTransitions[0].matcher.printLabel();
+
 }
-
-
