@@ -33,6 +33,7 @@ We'll definitely need pointers for the map, but I'm convinced simply using smart
 ### Paolo 
 
 ### Tomasz
+- First, I'll update the individual files, as a lot has changed.
 - Next, I will take a look at the 'memory' feature of the matches() function.
 
 ### Emre
