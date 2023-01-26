@@ -22,6 +22,7 @@ We'll definitely need pointers for the map, but I'm convinced simply using smart
 ### Tomasz
 
 - I managed to find stupid workaroudns so that the class part now works!
+- Wrote the compute() function. It compiles, but always returns 'false'. I uploaded it only under core.cpp as it's in development.
 
 ### Emre
 
@@ -31,7 +32,7 @@ We'll definitely need pointers for the map, but I'm convinced simply using smart
 ### Paolo 
 
 ### Tomasz
-- Will begin to work on compute(string) function on Thursday
+- Fixing the compute() function.
 
 ### Emre
 
