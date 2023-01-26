@@ -21,6 +21,8 @@ We'll definitely need pointers for the map, but I'm convinced simply using smart
 
 ### Tomasz
 
+- I managed to find stupid workaroudns so that the class part now works!
+
 ### Emre
 
 ### Basak
@@ -29,7 +31,7 @@ We'll definitely need pointers for the map, but I'm convinced simply using smart
 ### Paolo 
 
 ### Tomasz
-- Finishing up the Classes. Once that's done I'm moving on to the search() functiona
+- Will begin to work on compute(string) function on Thursday
 
 ### Emre
 
