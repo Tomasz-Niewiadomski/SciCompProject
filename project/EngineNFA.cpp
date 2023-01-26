@@ -4,20 +4,32 @@
 #include "Matcher.h"
 #include "State.h"
 
-void EngineNFA::setStartState(State givenState)
+
+void EngineNFA::addState(State state)
 {
-	startState = givenState;
+	states.push_back(State(state));
 };
 
-void EngineNFA::setEndState(std::string name)
+void EngineNFA::declareStates(std::vector<State> declaredStates)
 {
-	states[name] = State(name);
+	for (int i = 0; i < declaredStates.size(); i++)
+	{
+
+		addState(declaredStates[i]);
+
+	}
+	if (states.size() != 0)
+		{
+
+			endState = states.size()-1;
+
+		}
 };
 
-void EngineNFA::addTransition(State fromState, State toState, Matcher matcher)
+	// Stupid workaround: state q0 has index 0, q1 has index 1, etc...
+void EngineNFA::addTransition(int fromState, int toState, Matcher &matcher)
 {
-	//// Uses the addTransition() from State class
-	//states[fromState].addTransition(states[toState], matcher);
+	states[fromState].addTransition(states[toState], matcher);
 };
 
 void EngineNFA::compute(std::string)

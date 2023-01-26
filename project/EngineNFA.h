@@ -9,18 +9,17 @@ class EngineNFA
 {
 	public:
 
-	std::map<std::string, State> states;
-	State startState;
-	State endState;
+	std::vector<State> states;
+	int startState;
+	int endState;
 
-	void setStartState(State givenState);
-	
+	EngineNFA();
 
-	void setEndState(std::string name);
-	
+	void addState(State state);
 
-	void addTransition(State fromState, State toState, Matcher matcher);
-	
+	void declareStates(std::vector<State> declaredStates);
+
+	void addTransition(int fromState, int toState, Matcher &matcher);
 
 	void compute(std::string);
 	
