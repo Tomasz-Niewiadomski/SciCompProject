@@ -142,13 +142,12 @@ class EngineNFA
 
 				for (int c = states[currentState].stateTransitions.size()-1; c >= 0; c--)
 				{
-					Matcher matcher = states[currentState].stateTransitions[c].matcher;
 					int toState = states[currentState].stateTransitions[c].toState;
 
-					if (matcher.matches(input))
+					if (states[currentState].stateTransitions[c].matcher.matches(input) == true)
 					{
 						int nextIterator;
-						if (matcher.isEpsilon())
+						if (states[currentState].stateTransitions[c].matcher.isEpsilon())
 						{
 							nextIterator = i;
 						}
@@ -168,13 +167,16 @@ class EngineNFA
 int main()
 {
 	EngineNFA nfa;
+
 	std::vector<State> states_vec{State("q0"), State("q1"), State("q2"), State("q3")};
+
 	nfa.declareStates(states_vec);
-	std::cout << "End state: " << nfa.endState << std::endl;
+
 	CharacterMatcher c01("a");
 	CharacterMatcher c12("b");
 	CharacterMatcher c22("b");
 	EpsilonMatcher c23;
+
 	nfa.addTransition(0, 1, c01);
 	nfa.addTransition(1, 2, c12);
 	nfa.addTransition(2, 2, c22);
@@ -184,37 +186,11 @@ int main()
 	bool test2 = nfa.compute("aabbbbbb");
 	bool test3 = nfa.compute("ab");
 	bool test4 = nfa.compute("a");
+	bool test5 = nfa.compute("abc");
 
-	std::cout << "Test 1 (should be true): " << test1 << std::endl;
-	std::cout << "Test 2 (should be false): " << test2 << std::endl;
-	std::cout << "Test 3 (should be true): " << test3 << std::endl;
-	std::cout << "Test 4 (should be false): " << test4 << std::endl;
-
-//	std::stack<int> testStack;
-//	testStack.push(69);
-//	testStack.push(420);
-//	testStack.push(2137);
-//
-//	std::vector<State> states_vec{State("q0"), State("q1")};
-//	nfa.declareStates(states_vec);
-//	std::cout << "Start state: " << nfa.startState << std::endl;
-//	CharacterMatcher c01("a");
-//	nfa.addTransition(0, 1, c01);
-//	std::cout << "End state: " << nfa.endState << std::endl;
-//	bool test = nfa.compute("a");
-//
-//	std::cout << "Test (should be true): " << test << std::endl;
-//
-//
-//	std::cout << "To state: " << nfa.states[0].stateTransitions[0].toState << std::endl;
-
-
-//	std::cout << "" << std::endl;
-//
-//	std::cout << nfa.states[0].stateTransitions[0].matcher.printLabel() << std::endl;
-//	std::cout << nfa.states[1].stateTransitions[0].matcher.printLabel() << std::endl;
-//	std::string example("mama");
-//	std::string boba(1, example[1]);
-//	std::cout << "boba: " << boba << std::endl;
-
+	std::cout << "Test 1: ['abb*' matches 'abbbbbb'?] (should be true): " << test1 << std::endl;
+	std::cout << "Test 2: ['abb*' matches 'aabbbbbb'?] (should be false): " << test2 << std::endl;
+	std::cout << "Test 3: ['abb*' matches 'ab'?] (should be true): " << test3 << std::endl;
+	std::cout << "Test 4: ['abb*' matches 'a'?] (should be false): " << test4 << std::endl;
+	std::cout << "Test 5: ['abb*' matches 'abc'?](should be false): " << test5 << " -> needs 'memory' feature " << std::endl;
 }
