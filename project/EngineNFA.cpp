@@ -4,6 +4,11 @@
 #include "Matcher.h"
 #include "State.h"
 
+EngineNFA::EngineNFA()
+{
+	startState = 0;
+	startState = 0;
+}
 
 void EngineNFA::addState(State state)
 {
