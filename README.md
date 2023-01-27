@@ -23,7 +23,8 @@ We'll definitely need pointers for the map, but I'm convinced simply using smart
 
 - I managed to find stupid workaroudns so that the class part now works!
 - Wrote the compute() function. It compiles, but always returns 'false'. I uploaded it only under core.cpp as it's in development.
-- Update: Now it works! 
+- Update: Now compute() works! Will work on the 'memory' feature, so that it doesn't get stuck in epsilon loops.
+- Update: I added the memory functionality to compute() & updated the individual files
 
 ### Emre
 
@@ -33,8 +34,8 @@ We'll definitely need pointers for the map, but I'm convinced simply using smart
 ### Paolo 
 
 ### Tomasz
-- First, I'll update the individual files, as a lot has changed.
-- Next, I will take a look at the 'memory' feature of the matches() function.
+
+- Need to make the code a bit clearer and comment over it
 
 ### Emre
 
