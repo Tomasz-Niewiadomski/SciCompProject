@@ -122,6 +122,7 @@ class EngineNFA
 				int iterator;
 				int state;
 				std::vector<int> memory;
+				// Two constructors, one without vector, one with vector
 				Triple(int givenI, int givenState) : iterator(givenI), state(givenState), memory(0){}
 				Triple(int givenI, int givenState, std::vector<int> givenMemory) : iterator(givenI), state(givenState), memory(givenMemory){}
 			};
@@ -138,22 +139,29 @@ class EngineNFA
 				std::vector<int> memory = stack.top().memory;
 				stack.pop();
 
+				// Check if we reached the end
 				if (endState == currentState)
 				{
 					return true;
 				}
 
+				// take i-th element of input string
+				// Has to be done this way, because char cannot conver to
+				// string in a normal way
 				std::string input(1, string[i]);
 
+				// Iterate through all transitions in each state
 				for (int c = states[currentState].stateTransitions.size()-1; c >= 0; c--)
 				{
 					int toState = states[currentState].stateTransitions[c].toState;
 
 					// Check if matcher matches the input character
+					// cannot define the matcher to other variable
+					// - constructor issues
 					if (states[currentState].stateTransitions[c].matcher.matches(input) == true)
 					{
+						// Locally store memory
 						std::vector<int> copyMemory = memory;
-						int nextIterator;
 						// Check if the matcher is an epsilon
 						if (states[currentState].stateTransitions[c].matcher.isEpsilon())
 						{
@@ -169,6 +177,8 @@ class EngineNFA
 							copyMemory.clear();
 						}
 
+						int nextIterator;
+
 						if (states[currentState].stateTransitions[c].matcher.isEpsilon())
 						{
 							nextIterator = i;
@@ -181,9 +191,9 @@ class EngineNFA
 						Triple newStackMember(nextIterator, toState, copyMemory);
 						stack.push(newStackMember);
 					}
-
 				}
 			}
+			// If stack empty
 			return false;
 		}
 };
@@ -215,7 +225,6 @@ int main()
 	std::cout << "Test 2: ['abb*' matches 'aabbbbbb'?] (should be false): " << test2 << std::endl;
 	std::cout << "Test 3: ['abb*' matches 'ab'?] (should be true): " << test3 << std::endl;
 	std::cout << "Test 4: ['abb*' matches 'a'?] (should be false): " << test4 << std::endl;
-	std::cout << "Test 5: ['abb*' matches 'abc'?](should be false): " << test5 << " -> needs 'memory' feature " << std::endl;
 
 //	std::vector<State> states_vector{State("q0"), State("q1"), State("q2")};
 //	nfa.declareStates(states_vector);
