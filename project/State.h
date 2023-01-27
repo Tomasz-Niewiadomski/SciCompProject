@@ -3,16 +3,18 @@
 #include <vector>
 #include "Matcher.h"
 
-class State
-{
-
-	struct Transition
+struct Transition
 	{
 		int toState;
 		Matcher& matcher;
 
 		Transition(int givenState, Matcher& givenMatcher) : toState(givenState), matcher(givenMatcher) {}
-	};
+};
+
+class State
+{
+
+	
 public:
 
 	std::string stateName;
