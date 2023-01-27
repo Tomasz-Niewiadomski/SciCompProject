@@ -26,6 +26,8 @@ We'll definitely need pointers for the map, but I'm convinced simply using smart
 - Update: Now compute() works! Will work on the 'memory' feature, so that it doesn't get stuck in epsilon loops.
 - Update: I added the memory functionality to compute() & updated the individual files
 
+(comment by Paolo) yoooo this is great!!! 
+
 ### Emre
 
 ### Basak
