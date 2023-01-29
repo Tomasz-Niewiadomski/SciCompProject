@@ -1,5 +1,5 @@
 CXX = g++ -std=c++17
-CXXFLAGS = -Wall -Werror
+CXXFLAGS = -Wall -Werror -pedantic
 
 parser : parser.o
 	$(CXX) $(CXXFLAGS) -O -o parser parser.o Atom.o AstAlternative.o Ast.o

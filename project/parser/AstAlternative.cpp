@@ -38,4 +38,3 @@ void AstAlternative::whoAmI()
 	
 	std::cout << "This is what I contain." << std::endl;
 }
-;

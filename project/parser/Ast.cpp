@@ -11,7 +11,7 @@ Ast::Ast(std::string input)
 {
 	expression = input;
 	typeName = "Ast";
-};
+}
 
 
 void Ast::addSubExpr(AstPointer point)
@@ -36,4 +36,3 @@ void Ast::whoAmI()
 	}
 	std::cout << "This is what I contain." << std::endl;
 }
-;

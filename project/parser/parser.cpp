@@ -77,7 +77,7 @@ AstPointer parser(std::string input) {
 	}
 
 	return tree;
-};
+}
 
 int main() {
 
@@ -111,7 +111,7 @@ int findOr(std::string& input) {
 
 
 	return pos;
-};
+}
 
 int findClosure(std::string& input, int start) {
 
@@ -147,4 +147,4 @@ int findClosure(std::string& input, int start) {
 
 bool isAQuantifier(char c) {
 	return ((c == '+') or (c == '*') or (c == '?'));
-};
+}

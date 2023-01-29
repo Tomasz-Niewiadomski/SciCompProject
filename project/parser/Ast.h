@@ -17,7 +17,7 @@ public:
 
 	std::string expression;
 
-    char quantifier;
+	char quantifier;
 
 	Ast();
 

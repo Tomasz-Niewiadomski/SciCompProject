@@ -18,5 +18,4 @@ void Atom::whoAmI()
 		std::cout << "I don't have a quantifier" << std::endl;
 
 }
-;
 
