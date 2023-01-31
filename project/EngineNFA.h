@@ -14,7 +14,7 @@ class EngineNFA
 	int endState;
 
 	EngineNFA();
-
+	
 	void addState(State state);
 
 	void declareStates(std::vector<State> declaredStates);
@@ -22,5 +22,10 @@ class EngineNFA
 	void addTransition(int fromState, int toState, Matcher &matcher);
 
 	bool compute(std::string string);
+	
+	void concatenateNFA(EngineNFA returned);  // represents Ast
+	
+	EngineNFA(EngineNFA nfa1, EngineNFA nfa2); // represents AstAlternative
+	
 };
 

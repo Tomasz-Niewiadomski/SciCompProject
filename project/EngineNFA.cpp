@@ -1,9 +1,10 @@
 #include "EngineNFA.h"
-#include<string>
-#include<map>
+#include <string>
+#include <map>
 #include "Matcher.h"
 #include "State.h"
-#include<stack>
+#include <stack>
+#include <algorithm>
 
 EngineNFA::EngineNFA()
 {
@@ -18,7 +19,7 @@ void EngineNFA::addState(State state)
 
 void EngineNFA::declareStates(std::vector<State> declaredStates)
 {
-	for (int i = 0; i < declaredStates.size(); i++)
+	for (int i = 0; i < (int) declaredStates.size(); i++)
 	{
 
 		addState(declaredStates[i]);

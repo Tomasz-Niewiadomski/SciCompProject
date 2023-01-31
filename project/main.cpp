@@ -8,10 +8,32 @@
 #include "EpsilonMatcher.h"
 #include <iostream>
 #include <vector>
+//#include <parser.cpp>
+
+EngineNFA oneStepNFA(Matcher matcher)
+{
+	EngineNFA nfa;
+	std::vector<State> statesVector{State("q0"), State("q1")};
+	nfa.declareStates(statesVector);
+	nfa.addTransition(0, 1, matcher);
+	
+	return nfa;
+}	
+
+EngineNFA epsilonTransition()
+{
+	EpsilonMatcher eps;
+	return oneStepNFA(eps);
+}
+
+
 
 int main()
 {
-	EngineNFA nfa;
+	CharacterMatcher c01("a");
+	EpsilonMatcher e;
+		
+	std::cout << "Starting state: " << oneStepNFA(e).startState << " and Ending State: " << oneStepNFA(e).endState << std::endl;
 
 //	std::vector<State> states_vec{State("q0"), State("q1"), State("q2"), State("q3")};
 //
@@ -37,15 +59,21 @@ int main()
 //	std::cout << "Test 3: ['abb*' matches 'ab'?] (should be true): " << test3 << std::endl;
 //	std::cout << "Test 4: ['abb*' matches 'a'?] (should be false): " << test4 << std::endl;
 
-	std::vector<State> states_vector{State("q0"), State("q1"), State("q2")};
-	nfa.declareStates(states_vector);
+	//std::vector<State> states_vector{State("q0"), State("q1"), State("q2")};
+	//nfa.declareStates(states_vector);
 
-	CharacterMatcher a("a");
-	EpsilonMatcher eps;
-	CharacterMatcher b("b");
+	//CharacterMatcher a("a");
+	//EpsilonMatcher eps;
+	//CharacterMatcher b("b");
 
-	nfa.addTransition(0, 1, a);
-	nfa.addTransition(1, 1, eps);
-	nfa.addTransition(1, 2, b);
-	std::cout<< "Should return true: " << nfa.compute("ab") << " ... and not be stuck forever" << std::endl;
+	//nfa.addTransition(0, 1, a);
+	//nfa.addTransition(1, 1, eps);
+	//nfa.addTransition(1, 2, b);
+	//std::cout<< "Should return true: " << nfa.compute("ab") << " ... and not be stuck forever" << std::endl;
+	
+	//std::string expr = "a+b|bc(e|f)?";
+
+//	parser(expr);
+
+	return 0;
 }
