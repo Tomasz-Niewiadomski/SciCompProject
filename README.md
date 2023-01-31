@@ -13,11 +13,7 @@ Let's split the project into phases:
 
 ## What have we done:
 ### Paolo
-Divided everything in .cpp and .h and created the makefile. 
-
-I couldn't solve the isuue with the transition struct. maybe we can just switch back to a tuple?
-
-We'll definitely need pointers for the map, but I'm convinced simply using smart/unique ptr will be fine.
+engineCreator is almost done: I just need to fix quantifier a bit, but the main part is already there.
 
 ### Tomasz
 
@@ -26,7 +22,6 @@ We'll definitely need pointers for the map, but I'm convinced simply using smart
 - Update: Now compute() works! Will work on the 'memory' feature, so that it doesn't get stuck in epsilon loops.
 - Update: I added the memory functionality to compute() & updated the individual files
 
-(comment by Paolo) yoooo this is great!!! 
 
 ### Emre
 
@@ -34,6 +29,7 @@ We'll definitely need pointers for the map, but I'm convinced simply using smart
 
 ## What we are doing atm:
 ### Paolo 
+(Wednesday) I will finish the job on the engine creation.
 
 ### Tomasz
 
