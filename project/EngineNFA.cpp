@@ -121,3 +121,19 @@ bool EngineNFA::compute(std::string string)
 	// If stack empty
 	return false;
 };
+
+void EngineNFA::concatenateNFA(EngineNFA nfaToConcat)
+{
+	addTransition(endState, endState + 1, nfaToConcat.states[nfaToConcat.startState].stateTransitions[0].matcher); // adds the first transition of nfaToConcat to the last nfa state
+
+	// Erease the end state
+	states.erase(states.begin() + endState);
+// Shift nfa2 transition.toStates (except the ending one)
+	for (int i = 0; i < nfaToConcat.states.size() - 1; i++)
+	{
+		nfaToConcat.states[i].stateTransitions[0].toState += endState;
+		states.push_back(nfaToConcat.states[i]);
+	}
+	endState += nfaToConcat.endState;
+};
+
