@@ -26,6 +26,8 @@ class EngineNFA
 	void concatenateNFA(EngineNFA returned);  // represents Ast
 	
 	EngineNFA(EngineNFA nfa1, EngineNFA nfa2); // represents AstAlternative
+
+	void myState();
 	
 };
 

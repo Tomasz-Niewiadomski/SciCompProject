@@ -13,6 +13,6 @@ bool CharacterMatcher::isEpsilon() {
 };
 
 std::string CharacterMatcher::printLabel() {
-	return c;
+	return c + "transition";
 };
 

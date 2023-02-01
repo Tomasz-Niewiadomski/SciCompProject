@@ -1,10 +1,12 @@
 #include "EngineNFA.h"
-#include <string>
-#include <map>
 #include "Matcher.h"
 #include "State.h"
+#include "EpsilonMatcher.h"
+#include <string>
+#include <map>
 #include <stack>
 #include <algorithm>
+#include<iostream>
 
 EngineNFA::EngineNFA()
 {
@@ -15,6 +17,8 @@ EngineNFA::EngineNFA()
 void EngineNFA::addState(State state)
 {
 	states.push_back(State(state));
+	
+	endState++;
 };
 
 void EngineNFA::declareStates(std::vector<State> declaredStates)
@@ -25,12 +29,6 @@ void EngineNFA::declareStates(std::vector<State> declaredStates)
 		addState(declaredStates[i]);
 
 	}
-	if (states.size() != 0)
-		{
-
-			endState = states.size()-1;
-
-		}
 };
 
 	// Stupid workaround: state q0 has index 0, q1 has index 1, etc...
@@ -124,16 +122,52 @@ bool EngineNFA::compute(std::string string)
 
 void EngineNFA::concatenateNFA(EngineNFA nfaToConcat)
 {
-	addTransition(endState, endState + 1, nfaToConcat.states[nfaToConcat.startState].stateTransitions[0].matcher); // adds the first transition of nfaToConcat to the last nfa state
+	//addTransition(endState, endState + 1, nfaToConcat.states[nfaToConcat.startState].stateTransitions[0].matcher); // adds the first transition of nfaToConcat to the last nfa state
 
 	// Erease the end state
-	states.erase(states.begin() + endState);
+	// states.erase(states.begin() + endState);
+	states.pop_back();
 // Shift nfa2 transition.toStates (except the ending one)
-	for (int i = 0; i < nfaToConcat.states.size() - 1; i++)
+	for (int i = 0; i < (int) nfaToConcat.states.size() - 1; i++)
 	{
 		nfaToConcat.states[i].stateTransitions[0].toState += endState;
 		states.push_back(nfaToConcat.states[i]);
 	}
 	endState += nfaToConcat.endState;
-};
+}
 
+EngineNFA::EngineNFA(EngineNFA nfa1, EngineNFA nfa2) {
+	addState(State("q0"));
+	concatenateNFA(nfa1);
+	int startState1 = 1;
+	int endState1 = endState;
+
+	concatenateNFA(nfa2);
+	
+	int startState2 = endState1 + 1;
+	int endState2 = endState;
+
+	addState(State("qfinal"));
+
+	EpsilonMatcher eps;
+
+	addTransition(0, startState1, eps);
+	addTransition(0, startState2, eps);
+	
+	addTransition(endState1, endState, eps);
+	addTransition(endState2, endState, eps);
+}
+
+void EngineNFA::myState()
+{
+	std::cout << "Number of states: " << endState + 1 << std::endl;
+
+	for (int i = 0; i < (int)states.size(); i++) {
+		std::cout << "State " << i << std::endl;
+		std::cout << "Transitions: " << std::endl;
+		
+		states[i].myState();
+	}
+
+	std::cout<<std::endl;
+}

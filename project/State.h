@@ -24,6 +24,8 @@ public:
 	State(std::string name);
 
 	void addTransition(int givenToState, Matcher& givenMatcher);
+
+	void myState();
 	
 };
 

@@ -10,8 +10,6 @@ public:
 
     void whoAmI() override;
     
-    bool virtual isAnAst();
-	 
 	bool isAnAst() override;
 	
 	bool isAnAtom() override;
