@@ -17,8 +17,8 @@ EngineNFA::EngineNFA()
 void EngineNFA::addState(State state)
 {
 	states.push_back(State(state));
-	
-	endState++;
+	if (states.size() > 1)
+		endState++;
 };
 
 void EngineNFA::declareStates(std::vector<State> declaredStates)
