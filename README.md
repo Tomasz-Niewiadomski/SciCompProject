@@ -13,7 +13,10 @@ Let's split the project into phases:
 
 ## What have we done:
 ### Paolo 🇮🇹
-engineCreator is almost done: I just need to fix quantifier a bit, but the main part is already there.
+
+I have written multiple functions in the main file + added the new constructor in EngineNFA + slightly modified the concatenateNFA method.
+
+I also have added some printing "myState()" functions to check whether the result is correct
 
 ### Tomasz 🇵🇱
 
@@ -26,7 +29,6 @@ engineCreator is almost done: I just need to fix quantifier a bit, but the main 
 
 ## What we are doing atm:
 ### Paolo 🇮🇹
-(Wednesday) I will finish the job on the engine creation.
 
 ### Tomasz 🇵🇱
 
