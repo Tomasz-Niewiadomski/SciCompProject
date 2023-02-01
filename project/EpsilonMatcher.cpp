@@ -13,5 +13,5 @@ bool EpsilonMatcher::isEpsilon()
 
 std::string EpsilonMatcher::printLabel()
 {
-	return "epsilon transition";
+	return "epsilon";
 };

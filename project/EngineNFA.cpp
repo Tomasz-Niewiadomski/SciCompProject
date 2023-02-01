@@ -122,17 +122,17 @@ bool EngineNFA::compute(std::string string)
 
 void EngineNFA::concatenateNFA(EngineNFA nfaToConcat)
 {
-	//addTransition(endState, endState + 1, nfaToConcat.states[nfaToConcat.startState].stateTransitions[0].matcher); // adds the first transition of nfaToConcat to the last nfa state
+	
+	if (!states.empty())
+		states.pop_back();
 
-	// Erease the end state
-	// states.erase(states.begin() + endState);
-	states.pop_back();
-// Shift nfa2 transition.toStates (except the ending one)
-	for (int i = 0; i < (int) nfaToConcat.states.size() - 1; i++)
+
+	for (int i = 0; i < (int) nfaToConcat.states.size(); i++)
 	{
-		nfaToConcat.states[i].stateTransitions[0].toState += endState;
+		nfaToConcat.states[i].moveTransitions(endState);
 		states.push_back(nfaToConcat.states[i]);
 	}
+
 	endState += nfaToConcat.endState;
 }
 
@@ -160,7 +160,12 @@ EngineNFA::EngineNFA(EngineNFA nfa1, EngineNFA nfa2) {
 
 void EngineNFA::myState()
 {
-	std::cout << "Number of states: " << endState + 1 << std::endl;
+	std::cout << "Number of states (endState+1): " << endState + 1 << std::endl;
+
+	std::cout << "Number of states (states.size()): " << states.size() << " (they should be the same)" << std::endl;
+
+	std::cout << std::endl;
+
 
 	for (int i = 0; i < (int)states.size(); i++) {
 		std::cout << "State " << i << std::endl;

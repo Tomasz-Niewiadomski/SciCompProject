@@ -25,6 +25,8 @@ public:
 
 	void addTransition(int givenToState, Matcher& givenMatcher);
 
+	void moveTransitions(int traslation);
+
 	void myState();
 	
 };

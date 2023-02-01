@@ -31,8 +31,6 @@ EngineNFA oneStepNFA(Matcher matcher);
 
 EngineNFA EpsTransition();
 
-EngineNFA atomicNFA(std::string character, char quantifier);
-
 EngineNFA addQuantifier(EngineNFA& input, char quantifier);
 
 EngineNFA questionMark(EngineNFA& input);
@@ -51,53 +49,57 @@ int main()
 	//	
 	//std::cout << "starting state: " << onestepnfa(e).startstate << " and ending state: " << onestepnfa(e).endstate << std::endl;
 
-	//std::string provolone1 = "abc";
+	std::string provolone1 = "a*bc";
 
 	EngineNFA nfa= EngineNFA();
 
-	//nfa = engineCreator(parser(provolone1));
+	AstPointer prova = parser(provolone1);
 
-	//
-
-	std::vector<State> states_vec{State("q0"), State("q1"), State("q2"), State("q3")};
-
-	nfa.declareStates(states_vec);
-
-	CharacterMatcher c01("a");
-	CharacterMatcher c12("b");
- 
-	CharacterMatcher c22("b");
-	EpsilonMatcher c23;
-
-	nfa.addTransition(0, 1, c01);
-	nfa.addTransition(1, 2, c12);
-	nfa.addTransition(2, 2, c22);
-	nfa.addTransition(2, 3, c23);
+	// prova->whoAmI();
+	nfa = engineCreator(prova);
 
 	nfa.myState();
+	//
 
-	bool test1 = nfa.compute("abbbbbb");
-	bool test2 = nfa.compute("aabbbbbb");
-	bool test3 = nfa.compute("ab");
-	bool test4 = nfa.compute("a");
+	//std::vector<State> states_vec{State("q0"), State("q1"), State("q2"), State("q3")};
 
-	std::cout << "Test 1: ['abb*' matches 'abbbbbb'?] (should be true): " << test1 << std::endl;
-	std::cout << "Test 2: ['abb*' matches 'aabbbbbb'?] (should be false): " << test2 << std::endl;
-	std::cout << "Test 3: ['abb*' matches 'ab'?] (should be true): " << test3 << std::endl;
-	std::cout << "Test 4: ['abb*' matches 'a'?] (should be false): " << test4 << std::endl;
+	//nfa.declareStates(states_vec);
 
-	EngineNFA nfa2;
-	std::vector<State> states_vector{State("q0"), State("q1"), State("q2")};
-	nfa2.declareStates(states_vector);
+	//CharacterMatcher c01("a");
+	//CharacterMatcher c12("b");
+ //
+	//CharacterMatcher c22("b");
+	//EpsilonMatcher c23;
 
-	CharacterMatcher a("a");
-	EpsilonMatcher eps;
-	CharacterMatcher b("b");
+	//nfa.addTransition(0, 1, c01);
+	//nfa.addTransition(1, 2, c12);
+	//nfa.addTransition(2, 2, c22);
+	//nfa.addTransition(2, 3, c23);
 
-	nfa2.addTransition(0, 1, a);
-	nfa2.addTransition(1, 1, eps);
-	nfa2.addTransition(1, 2, b);
-	std::cout<< "Should return true: " << nfa2.compute("ab") << " ... and not be stuck forever" << std::endl;
+	//nfa.myState();
+
+	//bool test1 = nfa.compute("abbbbbb");
+	//bool test2 = nfa.compute("aabbbbbb");
+	//bool test3 = nfa.compute("ab");
+	//bool test4 = nfa.compute("a");
+
+	//std::cout << "Test 1: ['abb*' matches 'abbbbbb'?] (should be true): " << test1 << std::endl;
+	//std::cout << "Test 2: ['abb*' matches 'aabbbbbb'?] (should be false): " << test2 << std::endl;
+	//std::cout << "Test 3: ['abb*' matches 'ab'?] (should be true): " << test3 << std::endl;
+	//std::cout << "Test 4: ['abb*' matches 'a'?] (should be false): " << test4 << std::endl;
+
+	//EngineNFA nfa2;
+	//std::vector<State> states_vector{State("q0"), State("q1"), State("q2")};
+	//nfa2.declareStates(states_vector);
+
+	//CharacterMatcher a("a");
+	//EpsilonMatcher eps;
+	//CharacterMatcher b("b");
+
+	//nfa2.addTransition(0, 1, a);
+	//nfa2.addTransition(1, 1, eps);
+	//nfa2.addTransition(1, 2, b);
+	//std::cout<< "Should return true: " << nfa2.compute("ab") << " ... and not be stuck forever" << std::endl;
 
 
 
@@ -113,22 +115,27 @@ EngineNFA engineCreator(AstPointer input) {
 
 	if (input->isAnAtom()) {
 
-		
 		std::string charact = input->expression;
+	
+
+		CharacterMatcher matcher = CharacterMatcher(charact);
+
+
+		nfa = oneStepNFA(matcher);
+
 		
-		char quant = input->quantifier;
-		
-		nfa = atomicNFA(charact, quant);
 	}
 	if (input->isAnAlternative()) {
 		nfa = EngineNFA(engineCreator(input->subExpr[0]), engineCreator(input->subExpr[1]));
 	}
-	else {
+	if (input->isAnAst()) {
 		int numExpr = static_cast<int>(input->subExpr.size());
 
 		for (int i = 0; i < numExpr; i++) {
 			nfa.concatenateNFA(engineCreator(input->subExpr[i]));
+
 		}
+		
 	}
 
 
@@ -136,6 +143,7 @@ EngineNFA engineCreator(AstPointer input) {
 }
 
 EngineNFA addQuantifier(EngineNFA& input, char quantifier) {
+	
 	switch (quantifier)
 	{
 	case '?':
@@ -173,18 +181,6 @@ EngineNFA star(EngineNFA& input) {
 	return questionMark(ret);
 
 }
-
-EngineNFA atomicNFA(std::string character, char quantifier) {
-
-	CharacterMatcher matcher = CharacterMatcher(character);
-
-	EngineNFA nfa;
- 
-	nfa = oneStepNFA(matcher);
-
-	return addQuantifier(nfa, quantifier);
-}
-
 
 EngineNFA oneStepNFA(Matcher matcher)
 {
