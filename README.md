@@ -16,7 +16,14 @@ Let's split the project into phases:
 
 I have written multiple functions in the main file + added the new constructor in EngineNFA + slightly modified the concatenateNFA method.
 
-I also have added some printing "myState()" functions to check whether the result is correct
+I also have added some printing "myState()" functions to check whether the result is correct (they somehow don't work now, maybe you can try to fix them Tomasz)
+
+Other problems:
+
+- I think there is some problem in the EngineNFA(EngineNFA, EngineNFA) constructor (the one representing alternative)
+
+- Also I think we need to fix a thing about concatenation, but nothing really urgent (I'll explain it when we meet)
+
 
 
 ### Tomasz 🇵🇱
