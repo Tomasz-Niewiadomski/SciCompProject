@@ -18,6 +18,7 @@ I have written multiple functions in the main file + added the new constructor i
 
 I also have added some printing "myState()" functions to check whether the result is correct
 
+
 ### Tomasz 🇵🇱
 
 - Wrote the concatenateNFA() function; it seems to work, but I've only done a little bit of testing
@@ -29,6 +30,8 @@ I also have added some printing "myState()" functions to check whether the resul
 
 ## What we are doing atm:
 ### Paolo 🇮🇹
+
+segmentation fault in the solving (hopefully)
 
 ### Tomasz 🇵🇱
 
