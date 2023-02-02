@@ -39,6 +39,7 @@ EpsilonCharacter eps;
 OneStepNFA(eps);
 ```
 It works. However, if we put this in a function:
+```
 EngineNFA EpsTransition()
 {
   EpsilonCharacter eps;
