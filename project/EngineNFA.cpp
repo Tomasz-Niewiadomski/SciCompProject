@@ -15,8 +15,9 @@ EngineNFA::EngineNFA()
 }
 
 void EngineNFA::addState(State state)
-{
-	states.push_back(State(state));
+{	//before, it was:
+	//states.push_back(State(state));
+	states.push_back(state);
 	if (states.size() > 1)
 		endState++;
 };
