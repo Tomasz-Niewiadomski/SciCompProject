@@ -23,7 +23,7 @@ class EngineNFA
 
 	bool compute(std::string string);
 	
-	void concatenateNFA(EngineNFA returned);  // represents Ast
+	void concatenateNFA(EngineNFA nfaToConcat);  // represents Ast
 	
 	EngineNFA(EngineNFA nfa1, EngineNFA nfa2); // represents AstAlternative
 
