@@ -27,7 +27,7 @@ bool isAQuantifier(char c);
 AstPointer parser(std::string input);
 
 
-EngineNFA oneStepNFA(Matcher matcher);
+EngineNFA oneStepNFA(Matcher& matcher);
 
 EngineNFA EpsTransition();
 
@@ -44,66 +44,27 @@ EngineNFA engineCreator(AstPointer input);
 
 int main()
 {
-	//charactermatcher c01("a");
-	//epsilonmatcher e;
-	//	
-	//std::cout << "starting state: " << onestepnfa(e).startstate << " and ending state: " << onestepnfa(e).endstate << std::endl;
 
-	std::string provolone1 = "a*bc";
+	std::string example1 = "a*bc";
+	std::string example2 = "ab";
+	std::string example3 = "a*b*";
+	std::string example4 = "a+b+";
+	std::string example5 = "a";
+	// Choose which example we run here
+	std::string regularExpression = example2; 
+	// The string we search through (using regular expression selected above)
+	std::string input("aaabbbbc");
 
-	EngineNFA nfa= EngineNFA();
-
-	AstPointer prova = parser(provolone1);
-
-	// prova->whoAmI();
-	nfa = engineCreator(prova);
-
-	nfa.myState();
-	//
-
-	//std::vector<State> states_vec{State("q0"), State("q1"), State("q2"), State("q3")};
-
-	//nfa.declareStates(states_vec);
-
-	//CharacterMatcher c01("a");
-	//CharacterMatcher c12("b");
- //
-	//CharacterMatcher c22("b");
-	//EpsilonMatcher c23;
-
-	//nfa.addTransition(0, 1, c01);
-	//nfa.addTransition(1, 2, c12);
-	//nfa.addTransition(2, 2, c22);
-	//nfa.addTransition(2, 3, c23);
-
-	//nfa.myState();
-
-	//bool test1 = nfa.compute("abbbbbb");
-	//bool test2 = nfa.compute("aabbbbbb");
-	//bool test3 = nfa.compute("ab");
-	//bool test4 = nfa.compute("a");
-
-	//std::cout << "Test 1: ['abb*' matches 'abbbbbb'?] (should be true): " << test1 << std::endl;
-	//std::cout << "Test 2: ['abb*' matches 'aabbbbbb'?] (should be false): " << test2 << std::endl;
-	//std::cout << "Test 3: ['abb*' matches 'ab'?] (should be true): " << test3 << std::endl;
-	//std::cout << "Test 4: ['abb*' matches 'a'?] (should be false): " << test4 << std::endl;
-
-	//EngineNFA nfa2;
-	//std::vector<State> states_vector{State("q0"), State("q1"), State("q2")};
-	//nfa2.declareStates(states_vector);
-
-	//CharacterMatcher a("a");
-	//EpsilonMatcher eps;
-	//CharacterMatcher b("b");
-
-	//nfa2.addTransition(0, 1, a);
-	//nfa2.addTransition(1, 1, eps);
-	//nfa2.addTransition(1, 2, b);
-	//std::cout<< "Should return true: " << nfa2.compute("ab") << " ... and not be stuck forever" << std::endl;
-
-
-
-
+	EngineNFA nfa = EngineNFA();
+	AstPointer parsedRegularExpression = parser(regularExpression);
+	nfa = engineCreator(parsedRegularExpression);
+	
+	// nfa.myState(); <- problems here
+	
+	std::cout << "Currently looking for the following regular expression: " << regularExpression << std::endl;
+	parsedRegularExpression ->whoAmI(); // <- this works well
+	std::cout << std::endl;
+	
 	return 0;
 }
 
@@ -115,10 +76,10 @@ EngineNFA engineCreator(AstPointer input) {
 
 	if (input->isAnAtom()) {
 
-		std::string charact = input->expression;
+		std::string character = input->expression;
 	
 
-		CharacterMatcher matcher = CharacterMatcher(charact);
+		CharacterMatcher matcher = CharacterMatcher(character);
 
 
 		nfa = oneStepNFA(matcher);
@@ -158,15 +119,19 @@ EngineNFA addQuantifier(EngineNFA& input, char quantifier) {
 }
 
 EngineNFA questionMark(EngineNFA& input) {
-	EngineNFA nfa;
-	nfa = EpsTransition();
-	nfa.concatenateNFA(input);
-	nfa.concatenateNFA(EpsTransition());
 
-	EpsilonMatcher eps;
+	EngineNFA nfa;                                       
+	EpsilonMatcher eps;                                  
+	EngineNFA epsNFA = oneStepNFA(eps);                  
+
+	nfa = oneStepNFA(eps);                               
+
+	nfa.concatenateNFA(input);                           
+	nfa.concatenateNFA(epsNFA);                          
+
 	nfa.addTransition(nfa.startState, nfa.endState, eps);
 
-	return nfa;
+	return nfa;                                          
 }
 
 EngineNFA plus(EngineNFA& input) {
@@ -182,7 +147,7 @@ EngineNFA star(EngineNFA& input) {
 
 }
 
-EngineNFA oneStepNFA(Matcher matcher)
+EngineNFA oneStepNFA(Matcher& matcher)
 {
 	EngineNFA nfa;
 	std::vector<State> statesVector{ State("q0"), State("q1") };
@@ -191,12 +156,13 @@ EngineNFA oneStepNFA(Matcher matcher)
 
 	return nfa;
 }
+                                                         
 
-EngineNFA EpsTransition() {
-	EpsilonMatcher eps;
-
-	return oneStepNFA(eps);
-}
+//EngineNFA EpsTransition() {         <- The devil lives here
+//	EpsilonMatcher eps;
+//
+//	return oneStepNFA(eps);
+//}
 
 
 AstPointer parser(std::string input) {
