@@ -72,7 +72,7 @@ segmentation fault in the solving (hopefully)
 
 ### Tomasz 🇵🇱
 
-- Writing the EngineNFA constructor that creates an AstAlternative NFA out of two NFAs.
+- Fighting with segmentation faults 🥊
 
 
 ### Emre 👨🏻‍🇹🇷
