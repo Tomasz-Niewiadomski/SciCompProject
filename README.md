@@ -14,16 +14,11 @@ Let's split the project into phases:
 ## What have we done:
 ### Paolo 🇮🇹
 
-I have written multiple functions in the main file + added the new constructor in EngineNFA + slightly modified the concatenateNFA method.
+- the matcher problems fixed by adding pointers, now it's fine
 
-I also have added some printing "myState()" functions to check whether the result is correct (they somehow don't work now, maybe you can try to fix them Tomasz)
+- concatenateNFA previously removed any transition from endState, now they are preserved
 
-Other problems:
-
-- I think there is some problem in the EngineNFA(EngineNFA, EngineNFA) constructor (the one representing alternative)
-
-- Also I think we need to fix a thing about concatenation, but nothing really urgent (I'll explain it when we meet)
-
+- EngineNFA(nfa1,nfa2) which represented Alternatives now works. it almost was fine, I just had to add a couple thing + fixing a stupid error on Endstate which left the program in an inconsistent state
 
 
 ### Tomasz 🇵🇱
