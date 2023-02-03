@@ -2,13 +2,20 @@
 #include <string>
 #include <vector>
 #include "Matcher.h"
+#include "CharacterMatcher.h"
+#include "EpsilonMatcher.h"
+#include <memory>
+
+typedef std::shared_ptr<Matcher> MatchPointer;
 
 struct Transition
 	{
 		int toState;
-		Matcher& matcher;
+		MatchPointer matcher;
 
-		Transition(int givenState, Matcher& givenMatcher) : toState(givenState), matcher(givenMatcher) {}
+		Transition(int givenState, MatchPointer givenMatcher) : toState(givenState){
+			matcher = givenMatcher;
+		}
 };
 
 class State

@@ -16,9 +16,22 @@ State::State(std::string name)
 
 void State::addTransition(int givenToState, Matcher& givenMatcher)
 {
-	Transition transition(givenToState, givenMatcher);
+	MatchPointer pointer;
+	if (givenMatcher.isEpsilon())
+	{
+		pointer = MatchPointer(new EpsilonMatcher());
+	}
+	else
+	{
+		if (givenMatcher.printLabel() == "unidentified matcher")
+			std::cout << "unidentified matcher" << std::endl;
+		pointer = MatchPointer(new CharacterMatcher(givenMatcher.printLabel()));
+	}
+	Transition transition(givenToState, pointer);
+	
 	stateTransitions.push_back(transition);
 }
+
 
 void State::moveTransitions(int traslation) {
 	for (int i = 0; i < (int)stateTransitions.size(); i++) {
@@ -28,15 +41,12 @@ void State::moveTransitions(int traslation) {
 
 void State::myState()
 { 
+	std::cout << stateTransitions.size() << std::endl;
 	if (stateTransitions.size() == 0)
 		std::cout << "No transitions " << std::endl;
 	else
 		for (int i = 0; i < (int)stateTransitions.size(); i++) {
-			std::cout << stateTransitions.size() << std::endl;
-			std::string stato = stateTransitions[i].matcher.printLabel(); 
-			// the current segmentation fault problem is up here ^, I have 0 idea why
-			std::cout << "whyyyyy" << std::endl;
-
+			std::string stato = stateTransitions[i].matcher->printLabel(); 
 			std::cout << "-- " + stato ;
 			std::cout << " transition to " << stateTransitions[i].toState << std::endl;
 		}

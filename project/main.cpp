@@ -6,7 +6,6 @@
 #include "Ast.h"
 #include "AstAlternative.h"
 #include "Atom.h"
-
 #include <cstdio>
 #include <string>
 #include <map>
@@ -45,25 +44,40 @@ EngineNFA engineCreator(AstPointer input);
 int main()
 {
 
-	std::string example1 = "a*bc";
-	std::string example2 = "ab";
+	std::string example1 = "a+bc";
+	std::string example2 = "a|b";
 	std::string example3 = "a*b*";
-	std::string example4 = "a+b+";
-	std::string example5 = "a";
-	// Choose which example we run here
-	std::string regularExpression = example2; 
+	std::string example4 = "a+b+c(ad)?d*d?";
+	std::string example5 = "a?";
+	
 	// The string we search through (using regular expression selected above)
 	std::string input("aaabbbbc");
 
-	EngineNFA nfa = EngineNFA();
+	// Choose which example we run here
+	std::string regularExpression = example2;
+
+
+	std::cout << "We are representing the string: " + regularExpression << std::endl;
+	EngineNFA nfa;
 	AstPointer parsedRegularExpression = parser(regularExpression);
 	nfa = engineCreator(parsedRegularExpression);
 	
-	// nfa.myState(); <- problems here
+	nfa.myState(); 
+	//<- problems here
+	//
+	//std::cout << "Currently looking for the following regular expression: " << regularExpression << std::endl;
+	//parsedRegularExpression ->whoAmI(); // <- this works well
+	////std::cout << std::endl;
+
+	regularExpression = example4;
 	
-	std::cout << "Currently looking for the following regular expression: " << regularExpression << std::endl;
-	parsedRegularExpression ->whoAmI(); // <- this works well
-	std::cout << std::endl;
+
+	std::cout << "We are representing the string: " + regularExpression << std::endl;
+	EngineNFA nfa2;
+	AstPointer parsedRegularExpression2 = parser(regularExpression);
+	nfa2 = engineCreator(parsedRegularExpression2);
+
+	nfa2.myState();
 	
 	return 0;
 }
@@ -126,7 +140,7 @@ EngineNFA questionMark(EngineNFA& input) {
 
 	nfa = oneStepNFA(eps);                               
 
-	nfa.concatenateNFA(input);                           
+	nfa.concatenateNFA(input);    
 	nfa.concatenateNFA(epsNFA);                          
 
 	nfa.addTransition(nfa.startState, nfa.endState, eps);
@@ -135,7 +149,7 @@ EngineNFA questionMark(EngineNFA& input) {
 }
 
 EngineNFA plus(EngineNFA& input) {
-	EpsilonMatcher eps;
+	EpsilonMatcher eps = EpsilonMatcher();
 	input.addTransition(input.endState, input.startState, eps);
 	return input;
 }
@@ -158,11 +172,11 @@ EngineNFA oneStepNFA(Matcher& matcher)
 }
                                                          
 
-//EngineNFA EpsTransition() {         <- The devil lives here
-//	EpsilonMatcher eps;
-//
-//	return oneStepNFA(eps);
-//}
+EngineNFA EpsTransition() {        
+	EpsilonMatcher eps;
+
+	return oneStepNFA(eps);
+}
 
 
 AstPointer parser(std::string input) {

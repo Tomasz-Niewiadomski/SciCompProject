@@ -82,12 +82,12 @@ bool EngineNFA::compute(std::string string)
 			// Check if matcher matches the input character
 			// cannot define the matcher to other variable
 			// - constructor issues
-			if (states[currentState].stateTransitions[c].matcher.matches(input) == true)
+			if (states[currentState].stateTransitions[c].matcher->matches(input) == true)
 			{
 				// Locally store memory
 				std::vector<int> copyMemory = memory;
 				// Check if the matcher is an epsilon
-				if (states[currentState].stateTransitions[c].matcher.isEpsilon())
+				if (states[currentState].stateTransitions[c].matcher->isEpsilon())
 				{
 					// Checks if toState is in memory vector
 					if (std::count(memory.begin(), memory.end(), toState))
@@ -103,7 +103,7 @@ bool EngineNFA::compute(std::string string)
 
 				int nextIterator;
 
-				if (states[currentState].stateTransitions[c].matcher.isEpsilon())
+				if (states[currentState].stateTransitions[c].matcher->isEpsilon())
 				{
 					nextIterator = i;
 				}
@@ -123,34 +123,56 @@ bool EngineNFA::compute(std::string string)
 
 void EngineNFA::concatenateNFA(EngineNFA nfaToConcat)
 {
-	
-	if (!states.empty())
-		states.pop_back();
 
+	nfaToConcat.states[0].moveTransitions(endState);
 
-	for (int i = 0; i < (int) nfaToConcat.states.size(); i++)
-	{
-		nfaToConcat.states[i].moveTransitions(endState);
-		states.push_back(nfaToConcat.states[i]);
+	if (!states.empty()) {
+
+		for (int i = 0; i < (int)nfaToConcat.states[0].stateTransitions.size(); i++) {
+			
+			int toState = nfaToConcat.states[0].stateTransitions[i].toState;
+			
+			Matcher& match = *nfaToConcat.states[0].stateTransitions[i].matcher;
+			
+			states[endState].addTransition(toState, match);
+			
+		}
+
 	}
+	else
+	{
 
-	endState += nfaToConcat.endState;
+		addState(nfaToConcat.states[0]);
+	}
+	int initEnd = endState;
+	for (int i = 1; i < (int) nfaToConcat.states.size(); i++)
+	{
+		nfaToConcat.states[i].moveTransitions(initEnd);
+		addState(nfaToConcat.states[i]);
+	}
 }
 
-EngineNFA::EngineNFA(EngineNFA nfa1, EngineNFA nfa2) {
+EngineNFA::EngineNFA(EngineNFA nfa1, EngineNFA nfa2) : EngineNFA() {
+	
 	addState(State("q0"));
+	addState(State("q1")); // we need 2 states because concatenateNFA substitutes the last one 
+	
 	concatenateNFA(nfa1);
+
 	int startState1 = 1;
 	int endState1 = endState;
 
+	addState(State("qFake")); // this is a fake state just to trick (again) concatenateNFA
+
 	concatenateNFA(nfa2);
+	
 	
 	int startState2 = endState1 + 1;
 	int endState2 = endState;
 
 	addState(State("qfinal"));
 
-	EpsilonMatcher eps;
+	EpsilonMatcher eps = EpsilonMatcher(); 
 
 	addTransition(0, startState1, eps);
 	addTransition(0, startState2, eps);
@@ -170,7 +192,7 @@ void EngineNFA::myState()
 
 	for (int i = 0; i < (int)states.size(); i++) {
 		std::cout << "State " << i << std::endl;
-		std::cout << "Transitions: " << std::endl;
+		std::cout << "Transitions: ";
 		
 		states[i].myState();
 	}
