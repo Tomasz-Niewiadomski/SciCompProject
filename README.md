@@ -23,38 +23,7 @@ Let's split the project into phases:
 
 ### Tomasz 🇵🇱
 
-- Ok, after spending multiple hours staring at the code, I noticed that there's A LOT of tiny problems in the code. I definitely haven't caught all of them though.
-
-```EpsTransition``` results in a segmentation fault.
-
-if we simply do:
-
-```
-EpsilonCharacter eps;
-OneStepNFA(eps);
-```
-It works. However, if we put this in a function:
-```
-EngineNFA EpsTransition()
-{
-  EpsilonCharacter eps;
-  return oneStepNFA(eps);
-}
-```
-<img width="1124" alt="Screenshot 2023-02-03 at 00 13 33" src="https://user-images.githubusercontent.com/74839077/216472239-a2b9a9d0-6bae-41d6-956d-e1524ee14221.png">
-This results in a segmentation fault. I don't know why, but this has a lot of implications:
-
-- ```plus``` works, as it doesn't use the ```EpsTransition``` stuff 
-- I fixed ```EpsTransition``` by removing it 💀
-- I fixed ```questionMark```
-- ```star``` works, as the questionMark that it depends on has been fixed
-- In the ```EngineNFA.cpp``` at line 19, we had ```states.push_back(State(state))``` - why? if ```state``` is already of type ```State```
-- I don't know if there should be references in places like ```EngineNFA::concatenateNFA(EngineNFA& nfaToConcat)```. I tried adding it, but it didn't seem to change anything. I.e. it still gave a segmentation fault, but since there are so many issues that conicide, we should look closer at it. This also regards the constructor ```EngineNFA::EngineNFA(EngineNFA nfa1, EngineNFA nfa2)``` where we don't use the references either, or ```void EngineNFA::addState(State state)```
-
-- Apart from that, I only made some syntax changes that don't change the meaning 
-
-
-
+- Maybe we nedd to add support for the ```.``` character, so that we could use ```.*anything.*``` which would search through all the text?
 
 ### Emre 👨🏻‍🇹🇷
 
