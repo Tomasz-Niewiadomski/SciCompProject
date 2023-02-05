@@ -14,11 +14,7 @@ Let's split the project into phases:
 ## What have we done:
 ### Paolo 🇮🇹
 
-- the matcher problems fixed by adding pointers, now it's fine
-
-- concatenateNFA previously removed any transition from endState, now they are preserved
-
-- EngineNFA(nfa1,nfa2) which represented Alternatives now works. it almost was fine, I just had to add a couple thing + fixing a stupid error on Endstate which left the program in an inconsistent state
+main.cpp was an absolute mess: I created external files for parsing and engine creation functions. the Makefile has been modified too.
 
 
 ### Tomasz 🇵🇱
