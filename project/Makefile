@@ -1,12 +1,18 @@
 CXX = g++ -std=c++17
 CXXFLAGS = -Wall -Werror
 
-main : main.o
-	$(CXX) $(CXXFLAGS) -O -o main main.o EngineNFA.o State.o EpsilonMatcher.o CharacterMatcher.o Matcher.o Ast.o AstAlternative.o Atom.o
+main: main.o
+	$(CXX) $(CXXFLAGS) -O -o main main.o engineCreator.o EngineNFA.o State.o EpsilonMatcher.o CharacterMatcher.o Matcher.o parser.o Ast.o AstAlternative.o Atom.o
 
-main.o: main.cpp EngineNFA.o State.o EpsilonMatcher.o CharacterMatcher.o Matcher.o Ast.o AstAlternative.o Atom.o
+main.o: main.cpp parser.o engineCreator.o
 	$(CXX) $(CXXFLAGS) -c main.cpp -o main.o
 
+engineCreator.o: engineCreator.cpp engineCreator.h Ast.o EngineNFA.o
+	$(CXX) $(CXXFLAGS) -c engineCreator.cpp -o engineCreator.o
+
+parser.o: parser.cpp parser.h Ast.o AstAlternative.o Atom.o
+	$(CXX) $(CXXFLAGS) -c parser.cpp -o parser.o
+		
 Atom.o: Ast.cpp Ast.h Atom.cpp Atom.h
 	$(CXX) $(CXXFLAGS) -c Atom.cpp -o Atom.o
 
@@ -16,7 +22,7 @@ AstAlternative.o: Ast.cpp Ast.h AstAlternative.cpp AstAlternative.h
 Ast.o: Ast.cpp Ast.h
 	$(CXX) $(CXXFLAGS) -c Ast.cpp -o Ast.o
 	
-EngineNFA.o: EngineNFA.cpp EngineNFA.h
+EngineNFA.o: EngineNFA.cpp EngineNFA.h State.o EpsilonMatcher.o CharacterMatcher.o Matcher.o
 	$(CXX) $(CXXFLAGS) -c EngineNFA.cpp -o EngineNFA.o
 	
 State.o: State.cpp State.h
