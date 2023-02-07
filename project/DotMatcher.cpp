@@ -5,7 +5,7 @@ DotMatcher::DotMatcher()
   c = ".";
 };
 
-bool DotMatcher::matches()
+bool DotMatcher::matches(std::string character)
 {
   return true;
 };

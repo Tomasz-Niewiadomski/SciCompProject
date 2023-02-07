@@ -9,6 +9,8 @@ public:
 
   std::string c;
 
+  DotMatcher();
+
   bool matches(std::string character) override;
 
   bool isEpsilon() override;
