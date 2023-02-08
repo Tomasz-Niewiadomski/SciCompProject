@@ -211,3 +211,37 @@ bool EngineNFA::search(std::string string)
 	}
 	return false;
 }
+
+std::vector<int> EngineNFA::findOccurances(std::string string)
+{
+	std::vector<int> occurances;
+	for (int i = 0; i < (int)string.size(); i++)
+	{
+		if (EngineNFA::compute(string.substr(i, string.size() - i)))
+		{
+			occurances.push_back(i);
+		}
+	}
+	return occurances;
+}
+
+void EngineNFA::printOccurances(std::string string)
+{
+	std::vector<int> occurances;
+	for (int i = 0; i < (int)string.size(); i++)
+	{
+		if (EngineNFA::compute(string.substr(i, string.size() - i)))
+		{
+			occurances.push_back(i);
+			std::cout << "Occurance #" << occurances.size() << " at: " << i << std::endl;
+		}
+	}
+	if (occurances.size() == 0)
+	{
+		std::cout << "No occurances found" << std::endl;
+	}
+
+	std::cout << "No more occurances found" << std::endl;
+
+}
+	

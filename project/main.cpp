@@ -17,10 +17,13 @@ int main()
 	std::string example2 = "a|b";
 	std::string example3 = "a*b*";
 	std::string example4 = "a+b+c(ad)?d*d?";
-	std::string example5 = "bcd";
+	std::string example5 = "Georgio";
+	std::string example6 = "NFA";
 	
 	// The string we search through (using regular expression selected above)
-	std::string input("abcd");
+	std::string input("My name is Giovani Georgio, but everyone calls me Georgio.");
+	std::string input2("You might have realized that since ComplexClass already has a matches method it could inherit from Matcher. The main reason I didn't do that is because they are at different layers of abstraction. First we parse the text to create a Parse Tree (PT), translate the PT to an Abstract Syntax Tree (AST) and finally create a NFA. Matchers are part of the NFA, so the AST shouldn't depend on the NFA.");
+
 
 	// Choose which example we run here
 	std::string regularExpression = example5;
@@ -30,9 +33,12 @@ int main()
 	AstPointer parsedRegularExpression = parser(regularExpression);
 	nfa = engineCreator(parsedRegularExpression);
 	
-	std::cout << "Currently looking for the following regular expression: " << regularExpression << std::endl;
-	std::cout << "Does it match the string: " << input << "?" << std::endl;
+	std::cout << " ------------------ " << std::endl;
+	std::cout << "Currently looking for the following regular expression: '" << regularExpression << "'" << std::endl;
+	std::cout << "Does it match the given string: '" << input << "'?" << std::endl;
 	std::cout << "The answer is: " << nfa.search(input) << std::endl;
+	std::cout << " ------------------ " << std::endl;
+	nfa.printOccurances(input);
 
 	//nfa.myState(); 
 	//<- problems here

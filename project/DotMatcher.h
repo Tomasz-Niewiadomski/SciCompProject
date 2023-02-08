@@ -2,7 +2,7 @@
 #include "Matcher.h"
 #include "string"
 
-class DotMatcher :
+class DotMatcher : // represents the dot character
    public Matcher
 {
 public:

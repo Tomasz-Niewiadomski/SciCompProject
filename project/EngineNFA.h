@@ -15,21 +15,26 @@ class EngineNFA
 
 	EngineNFA();
 	
-	void addState(State state);
+	void addState(State state); // adds a state to the NFA (not to be used explicitely)
 
-	void declareStates(std::vector<State> declaredStates);
+	void declareStates(std::vector<State> declaredStates); 
 
 	void addTransition(int fromState, int toState, Matcher &matcher);
 
-	bool compute(std::string string);
+	bool compute(std::string string); // true if regex found in the input string (anchored at the beginning)
 	
 	void concatenateNFA(EngineNFA nfaToConcat);  // represents Ast
 	
 	EngineNFA(EngineNFA nfa1, EngineNFA nfa2); // represents AstAlternative
 
-	void myState();
+	void myState(); // prints the states of the NFA
 
-	bool search(std::string string);
+	bool search(std::string string); // true if regex found anywhere in the input string
+
+	std::vector<int> findOccurances(std::string string); // returns a vector of indices where the regex is found in the input string 
+
+	void printOccurances(std::string string); // prints the indices where the regex is found in the input string
+
 	
 };
 
