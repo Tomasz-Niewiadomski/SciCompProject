@@ -1,0 +1,8 @@
+Twain
+[a-z]shing
+Huck[a-zA-Z]+|Saw[a-zA-Z]+
+\b\w+nn\b
+[a-q][^u-z]{13}x
+Tom|Sawyer|Huckleberry|Finn
+.{0,2}(Tom|Sawyer|Huckleberry|Finn)
+emre
