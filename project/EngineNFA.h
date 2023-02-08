@@ -28,6 +28,8 @@ class EngineNFA
 	EngineNFA(EngineNFA nfa1, EngineNFA nfa2); // represents AstAlternative
 
 	void myState();
+
+	bool search(std::string string);
 	
 };
 

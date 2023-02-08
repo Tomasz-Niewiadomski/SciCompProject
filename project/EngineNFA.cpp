@@ -199,3 +199,15 @@ void EngineNFA::myState()
 
 	std::cout<<std::endl;
 }
+
+bool EngineNFA::search(std::string string)
+{
+	for (int i = 0; i < (int)string.size(); i++)
+	{
+		if (EngineNFA::compute(string.substr(i, string.size() - i)))
+		{
+			return true;
+		}
+	}
+	return false;
+}
