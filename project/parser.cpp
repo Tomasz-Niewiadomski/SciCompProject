@@ -109,7 +109,7 @@ AstPointer parser(std::string input) {
 						i = i + 1;
 						clas->quantifier = input[i];
 					}
-
+					i = i + 1;
 					continue;
 				}
 				
