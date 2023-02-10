@@ -9,7 +9,9 @@ class SpecialMatcher :
 {
 public:
 
-    std::vector<Range> ranges;
+    SpecialMatcher();
+
+    SpecialMatcher(Matcher& matcher);
 
 	bool matches(std::string character) override;
 

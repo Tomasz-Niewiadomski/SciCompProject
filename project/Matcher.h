@@ -1,4 +1,6 @@
 #include <string>
+#include "Range.h"
+#include <vector>
 
 #pragma once
 
@@ -10,6 +12,8 @@ public:
 	virtual bool isEpsilon();
 
 	virtual std::string printLabel();
+
+	std::vector<Range> ranges; // We only use this for the SpecialMatcher class
 
 };
 

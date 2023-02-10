@@ -4,9 +4,23 @@
 #include <string>
 #include <iostream>
 
+SpecialMatcher::SpecialMatcher()
+{
+}
+
+SpecialMatcher::SpecialMatcher(Matcher& matcher)
+{
+    if (matcher.printLabel() != "Special matcher")
+        std::cout << "You are calling SpecialMatcher(Matcher&) on a non Special Matcher! line 14, SpecialMatcher.cpp" << std::endl;
+
+    for (auto& element : matcher.ranges) {
+        setRanges(element);
+    }
+}
+
 bool SpecialMatcher::matches(std::string character)
 {
-    std::cout << character<< std::endl;
+
     char charact = character[0];
 
     int num = static_cast<int>(ranges.size());
@@ -19,9 +33,8 @@ bool SpecialMatcher::matches(std::string character)
 }
 
 std::string SpecialMatcher::printLabel()
-{
-    std::cout << "I match anything from: " << ranges[0].start << " to: " << ranges[0].end << std::endl;
-
+{ 
+ 
     return "Special matcher";
 }
 

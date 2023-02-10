@@ -3,6 +3,7 @@
 #include <vector>
 #include <iostream>
 #include "Matcher.h"
+#include "SpecialMatcher.h"
 
 State::State()
 {
@@ -25,7 +26,16 @@ void State::addTransition(int givenToState, Matcher& givenMatcher)
 	{
 		if (givenMatcher.printLabel() == "unidentified matcher")
 			std::cout << "unidentified matcher" << std::endl;
-		pointer = MatchPointer(new CharacterMatcher(givenMatcher.printLabel()));
+
+		if (givenMatcher.printLabel() == "Special matcher") 
+		{
+
+			SpecialMatcher match = givenMatcher;
+
+			pointer = MatchPointer(new SpecialMatcher(givenMatcher));
+		}
+		else
+			pointer = MatchPointer(new CharacterMatcher(givenMatcher.printLabel()));
 	}
 	Transition transition(givenToState, pointer);
 	

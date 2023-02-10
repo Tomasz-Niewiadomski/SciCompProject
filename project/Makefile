@@ -28,7 +28,7 @@ Ast.o: Ast.cpp Ast.h Range.o
 EngineNFA.o: EngineNFA.cpp EngineNFA.h State.o SpecialMatcher.o EpsilonMatcher.o CharacterMatcher.o Matcher.o
 	$(CXX) $(CXXFLAGS) -c EngineNFA.cpp -o EngineNFA.o
 	
-State.o: State.cpp State.h
+State.o: State.cpp State.h SpecialMatcher.o CharacterMatcher.o
 	$(CXX) $(CXXFLAGS) -c State.cpp -o State.o
 	
 SpecialMatcher.o: Matcher.o SpecialMatcher.cpp SpecialMatcher.h Range.o
