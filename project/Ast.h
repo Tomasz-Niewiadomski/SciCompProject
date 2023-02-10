@@ -35,6 +35,7 @@ public:
 	
 	bool virtual isAnAtom();
 
+	bool virtual isItSpecial();
 
 };
 

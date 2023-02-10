@@ -51,3 +51,8 @@ bool Ast::isAnAlternative(){
 bool Ast::isAnAtom(){
 	return false;
 }
+
+bool Ast::isItSpecial()
+{
+	return false;
+}
