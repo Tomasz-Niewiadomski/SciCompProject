@@ -98,7 +98,7 @@ AstPointer parser(std::string input) {
 				{
 					i = i + 1;
 
-					std::string corr = correspondingString(input[i + 1]);
+					std::string corr = correspondingString(input[i]);
 
 					AstPointer clas(new SpecialAst(specialAstAssembly(corr)));
 
