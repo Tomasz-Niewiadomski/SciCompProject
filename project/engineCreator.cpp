@@ -3,8 +3,12 @@
 #include "State.h"
 #include "CharacterMatcher.h"
 #include "EpsilonMatcher.h"
+#include "SpecialMatcher.h"
+
 #include "EngineNFA.h"
 #include "Ast.h"
+#include "SpecialAst.h"
+
 #include <string>
 #include <iostream>
 #include <vector>
@@ -20,7 +24,16 @@ EngineNFA engineCreator(AstPointer input) {
 
 
 	EngineNFA nfa;
+	if (input->isItSpecial()) {
 
+		SpecialMatcher matcher;
+
+		for (auto& element : input->ranges) {
+			matcher.setRanges(element);
+		}
+		
+		nfa = oneStepNFA(matcher);
+	}
 	if (input->isAnAtom()) {
 
 		std::string character = input->expression;

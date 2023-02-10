@@ -3,6 +3,7 @@
 #include <vector>
 #include <memory>
 #include <iostream>
+#include "Range.h"
 
 
 class Ast
@@ -36,6 +37,8 @@ public:
 	bool virtual isAnAtom();
 
 	bool virtual isItSpecial();
+
+	std::vector<Range> ranges; // for the specialAst class. We know this isn't really correct, but it is definetely the easiest way.
 
 };
 

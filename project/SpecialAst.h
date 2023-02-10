@@ -1,18 +1,8 @@
 #pragma once
 #include "Ast.h"
 #include <vector>
+#include "Range.h"
 
-struct range {
-
-    char start;
-
-    char end;
-
-    bool notNegated;
-
-    range(char starting, char ending, bool notNeg) : start(starting), end(ending), notNegated(notNeg) {}
-
-};
 
 class SpecialAst :
     public Ast
@@ -21,13 +11,15 @@ public:
 
     SpecialAst();
 
+    SpecialAst(const SpecialAst& ast);
+
     bool isAnAst() override;
 
     bool isItSpecial() override;
 
-    std::vector<range> ranges;
-
     void setRanges(char starting, char ending, bool notNeg);
+
+    void setRanges(Range range);
 
 };
 

@@ -14,10 +14,23 @@ bool SpecialAst::isItSpecial()
 void SpecialAst::setRanges(char starting, char ending, bool notNeg)
 {
 
-    ranges.push_back(range(starting, ending, notNeg));
+    ranges.push_back(Range(starting, ending, notNeg));
 
+}
+
+void SpecialAst::setRanges(Range range) {
+    ranges.push_back(range);
 }
 
 SpecialAst::SpecialAst() {
     typeName = "special";
+}
+
+SpecialAst::SpecialAst(const SpecialAst& ast)
+{
+    typeName = "special";
+
+    for (auto& element : ast.ranges) {
+        setRanges(element);
+    }
 }
