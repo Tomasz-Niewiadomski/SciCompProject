@@ -30,8 +30,6 @@ void State::addTransition(int givenToState, Matcher& givenMatcher)
 		if (givenMatcher.printLabel() == "Special matcher") 
 		{
 
-			SpecialMatcher match = givenMatcher;
-
 			pointer = MatchPointer(new SpecialMatcher(givenMatcher));
 		}
 		else
