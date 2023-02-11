@@ -87,6 +87,8 @@ AstPointer parser(std::string input) {
 
 				AstPointer add(new SpecialAst(dot));
 
+				tree->addSubExpr(add);
+
 				i = i + 1;
 
 				continue;
