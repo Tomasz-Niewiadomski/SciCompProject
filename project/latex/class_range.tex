@@ -1,0 +1,58 @@
+\hypertarget{class_range}{}\doxysection{Range Class Reference}
+\label{class_range}\index{Range@{Range}}
+
+
+Ranges of characters in a regular expression.  
+
+
+
+
+{\ttfamily \#include $<$Range.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_range_aa970bca4cafc7c8a4f3a23e8f69e32b6}\label{class_range_aa970bca4cafc7c8a4f3a23e8f69e32b6}} 
+{\bfseries Range} (char starting, char ending, bool not\+Neg)
+\item 
+\mbox{\Hypertarget{class_range_a49ba0476527c0f7a8481bd9b63bd0365}\label{class_range_a49ba0476527c0f7a8481bd9b63bd0365}} 
+bool {\bfseries matches} (char character)
+\begin{DoxyCompactList}\small\item\em A boolean value that is true if the character matches the range. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_range_af537f06a562ce38f630a1baff4c6c3ca}\label{class_range_af537f06a562ce38f630a1baff4c6c3ca}} 
+char {\bfseries start}
+\begin{DoxyCompactList}\small\item\em The starting character of the range. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_range_ad560f7260e1463a296b4ad50e1eeaf7e}\label{class_range_ad560f7260e1463a296b4ad50e1eeaf7e}} 
+char {\bfseries end}
+\begin{DoxyCompactList}\small\item\em The ending character of the range. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_range_aa8b0b6360689fd636f8e26602406b7ff}\label{class_range_aa8b0b6360689fd636f8e26602406b7ff}} 
+bool {\bfseries not\+Negated}
+\begin{DoxyCompactList}\small\item\em A boolean value that is false if the range is negated. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Related Functions}
+(Note that these are not member functions.) \begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{class_range_a9e1a2aed1dc136ef66b60c71f69895b6}{find\+Squared\+Closure}} (std\+::string \&input, int \mbox{\hyperlink{class_range_af537f06a562ce38f630a1baff4c6c3ca}{start}})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Ranges of characters in a regular expression. 
+
+Storing a range of characters in a regular expression e.\+g \mbox{[}a-\/z\mbox{]} or \mbox{[}$^\wedge$a-\/z\mbox{]} or \mbox{[}a-\/z0-\/9\mbox{]} or \mbox{[}$^\wedge$a-\/z0-\/9\mbox{]}. It is used to store the ranges in a special matcher. All \mbox{\hyperlink{class_ast}{Ast}} objects have a vector of ranges, but only the \mbox{\hyperlink{class_special_ast}{Special\+Ast}} should use it. 
+
+\doxysubsection{Friends And Related Function Documentation}
+\mbox{\Hypertarget{class_range_a9e1a2aed1dc136ef66b60c71f69895b6}\label{class_range_a9e1a2aed1dc136ef66b60c71f69895b6}} 
+\index{Range@{Range}!findSquaredClosure@{findSquaredClosure}}
+\index{findSquaredClosure@{findSquaredClosure}!Range@{Range}}
+\doxysubsubsection{\texorpdfstring{findSquaredClosure()}{findSquaredClosure()}}
+{\footnotesize\ttfamily int find\+Squared\+Closure (\begin{DoxyParamCaption}\item[{std\+::string \&}]{input,  }\item[{int}]{start }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [related]}}
+
+Finds the position of the closing square bracket of a subexpression. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Range.\+h\item 
+parser.\+cpp\item 
+Range.\+cpp\end{DoxyCompactItemize}

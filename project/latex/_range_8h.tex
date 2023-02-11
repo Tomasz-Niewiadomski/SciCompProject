@@ -1,0 +1,18 @@
+\hypertarget{_range_8h}{}\doxysection{Range.\+h File Reference}
+\label{_range_8h}\index{Range.h@{Range.h}}
+
+
+Class for a range of characters in a regular expression.  
+
+
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_range}{Range}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class for a range of characters in a regular expression. 
+
+Storing a range of characters in a regular expression e.\+g \mbox{[}a-\/z\mbox{]} or \mbox{[}$^\wedge$a-\/z\mbox{]} or \mbox{[}a-\/z0-\/9\mbox{]} or \mbox{[}$^\wedge$a-\/z0-\/9\mbox{]}. It is used to store the ranges in a special matcher. All \mbox{\hyperlink{class_ast}{Ast}} objects have a vector of ranges, but only the \mbox{\hyperlink{class_special_ast}{Special\+Ast}} should use it. 

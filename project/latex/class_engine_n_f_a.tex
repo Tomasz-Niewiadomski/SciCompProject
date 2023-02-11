@@ -1,0 +1,116 @@
+\hypertarget{class_engine_n_f_a}{}\doxysection{Engine\+NFA Class Reference}
+\label{class_engine_n_f_a}\index{EngineNFA@{EngineNFA}}
+
+
+The highest level representation of the NFA.  
+
+
+
+
+{\ttfamily \#include $<$Engine\+NFA.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_engine_n_f_a_ac67c3ddd493721bb563cb213ab5c213d}\label{class_engine_n_f_a_ac67c3ddd493721bb563cb213ab5c213d}} 
+void {\bfseries add\+State} (\mbox{\hyperlink{class_state}{State}} state)
+\begin{DoxyCompactList}\small\item\em adds a state to the NFA (not to be used explicitely) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_engine_n_f_a_a8b397adb6c882dba591fcfe916242581}\label{class_engine_n_f_a_a8b397adb6c882dba591fcfe916242581}} 
+void {\bfseries declare\+States} (std\+::vector$<$ \mbox{\hyperlink{class_state}{State}} $>$ declared\+States)
+\begin{DoxyCompactList}\small\item\em Initialises the NFA with the given states. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_engine_n_f_a_a08add4bccdbfe1eda2fadfbbf511ac62}{add\+Transition}} (int from\+State, int to\+State, \mbox{\hyperlink{class_matcher}{Matcher}} \&matcher)
+\begin{DoxyCompactList}\small\item\em Adds a from one state to another with a given matcher. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_engine_n_f_a_a116eda4640be9f2ff77f7807cd5eaa0f}{compute}} (std\+::string string)
+\begin{DoxyCompactList}\small\item\em Checks if the input string is accepted by this NFA. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_engine_n_f_a_a9944528aeb927db76a7444b870fe7007}\label{class_engine_n_f_a_a9944528aeb927db76a7444b870fe7007}} 
+void {\bfseries concatenate\+NFA} (\mbox{\hyperlink{class_engine_n_f_a}{Engine\+NFA}} nfa\+To\+Concat)
+\begin{DoxyCompactList}\small\item\em Given an NFA, concatenates it to the current NFA. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_engine_n_f_a_a9971e97090caa4d05b37add4b9bc491a}\label{class_engine_n_f_a_a9971e97090caa4d05b37add4b9bc491a}} 
+{\bfseries Engine\+NFA} (\mbox{\hyperlink{class_engine_n_f_a}{Engine\+NFA}} nfa1, \mbox{\hyperlink{class_engine_n_f_a}{Engine\+NFA}} nfa2)
+\begin{DoxyCompactList}\small\item\em Constructs an engine in the Alternative\+Ast case. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_engine_n_f_a_a347f73fd9aaeae441110159b886679cf}\label{class_engine_n_f_a_a347f73fd9aaeae441110159b886679cf}} 
+void {\bfseries my\+State} ()
+\begin{DoxyCompactList}\small\item\em Prints state information for debugging purposes. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_engine_n_f_a_a70bed2f0f6b19a2e7d8cec75a08cbc6a}\label{class_engine_n_f_a_a70bed2f0f6b19a2e7d8cec75a08cbc6a}} 
+bool {\bfseries search} (std\+::string string)
+\begin{DoxyCompactList}\small\item\em Iterates through the input string removing a character at a time and checking if the regex is found in the remaining string with the \mbox{\hyperlink{class_engine_n_f_a_a116eda4640be9f2ff77f7807cd5eaa0f}{compute()}} function. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_engine_n_f_a_a26ba3ce8c929770f33ada1742bc3ec97}\label{class_engine_n_f_a_a26ba3ce8c929770f33ada1742bc3ec97}} 
+std\+::vector$<$ int $>$ {\bfseries find\+Occurances} (std\+::string string)
+\begin{DoxyCompactList}\small\item\em Returns a vector of indices where the regex is found in the entirety of the input string. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_engine_n_f_a_ab0ea6609cd3db0246d874cafba733a33}\label{class_engine_n_f_a_ab0ea6609cd3db0246d874cafba733a33}} 
+void {\bfseries print\+Occurances} (std\+::string string)
+\begin{DoxyCompactList}\small\item\em Prints the indices where the regex is found in the entirety of the input string. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_engine_n_f_a_a38890293274c20e0226a5b0d97cd8bc5}\label{class_engine_n_f_a_a38890293274c20e0226a5b0d97cd8bc5}} 
+std\+::vector$<$ \mbox{\hyperlink{class_state}{State}} $>$ {\bfseries states}
+\begin{DoxyCompactList}\small\item\em Vector containing all states of \textquotesingle{}\mbox{\hyperlink{class_state}{State}}\textquotesingle{} type present in the instance of an NFA. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_engine_n_f_a_a66e6be679063c62420b306c02e1be1e7}\label{class_engine_n_f_a_a66e6be679063c62420b306c02e1be1e7}} 
+int {\bfseries start\+State}
+\begin{DoxyCompactList}\small\item\em Starting state of the NFA. By default is 0. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_engine_n_f_a_a9dbada49252243fd7cb89b0aa029c59a}\label{class_engine_n_f_a_a9dbada49252243fd7cb89b0aa029c59a}} 
+int {\bfseries end\+State}
+\begin{DoxyCompactList}\small\item\em Ending state of the NFA. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Related Functions}
+(Note that these are not member functions.) \begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_engine_n_f_a}{Engine\+NFA}} \mbox{\hyperlink{class_engine_n_f_a_a415678a0d5c7efc3df6f3ca1a2294b4b}{engine\+Creator}} (Ast\+Pointer input)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The highest level representation of the NFA. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_engine_n_f_a_a08add4bccdbfe1eda2fadfbbf511ac62}\label{class_engine_n_f_a_a08add4bccdbfe1eda2fadfbbf511ac62}} 
+\index{EngineNFA@{EngineNFA}!addTransition@{addTransition}}
+\index{addTransition@{addTransition}!EngineNFA@{EngineNFA}}
+\doxysubsubsection{\texorpdfstring{addTransition()}{addTransition()}}
+{\footnotesize\ttfamily void Engine\+NFA\+::add\+Transition (\begin{DoxyParamCaption}\item[{int}]{from\+State,  }\item[{int}]{to\+State,  }\item[{\mbox{\hyperlink{class_matcher}{Matcher}} \&}]{matcher }\end{DoxyParamCaption})}
+
+
+
+Adds a from one state to another with a given matcher. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em from\+State} & Int representing the index of a state from which the transition is made. \\
+\hline
+{\em to\+State} & Int representing the index of a state to which the transition is made. \\
+\hline
+{\em matcher} & (Character/\+Epsilon/\+Special-\/) \mbox{\hyperlink{class_matcher}{Matcher}} object corresponding to the transition. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_engine_n_f_a_a116eda4640be9f2ff77f7807cd5eaa0f}\label{class_engine_n_f_a_a116eda4640be9f2ff77f7807cd5eaa0f}} 
+\index{EngineNFA@{EngineNFA}!compute@{compute}}
+\index{compute@{compute}!EngineNFA@{EngineNFA}}
+\doxysubsubsection{\texorpdfstring{compute()}{compute()}}
+{\footnotesize\ttfamily bool Engine\+NFA\+::compute (\begin{DoxyParamCaption}\item[{std\+::string}]{string }\end{DoxyParamCaption})}
+
+
+
+Checks if the input string is accepted by this NFA. 
+
+Returns true if regex found in the input string. The search is anchored at the beginning of the string. 
+\begin{DoxyParams}{Parameters}
+{\em string} & String to be checked. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Friends And Related Function Documentation}
+\mbox{\Hypertarget{class_engine_n_f_a_a415678a0d5c7efc3df6f3ca1a2294b4b}\label{class_engine_n_f_a_a415678a0d5c7efc3df6f3ca1a2294b4b}} 
+\index{EngineNFA@{EngineNFA}!engineCreator@{engineCreator}}
+\index{engineCreator@{engineCreator}!EngineNFA@{EngineNFA}}
+\doxysubsubsection{\texorpdfstring{engineCreator()}{engineCreator()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_engine_n_f_a}{Engine\+NFA}} engine\+Creator (\begin{DoxyParamCaption}\item[{Ast\+Pointer}]{input }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [related]}}
+
+Given an AST (Special\+Ast/\+Atom/\+Ast\+Alternative), returns an NFA engine ~\newline
+ 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Engine\+NFA.\+h\item 
+engine\+Creator.\+cpp\item 
+Engine\+NFA.\+cpp\end{DoxyCompactItemize}

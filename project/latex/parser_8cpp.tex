@@ -1,0 +1,48 @@
+\hypertarget{parser_8cpp}{}\doxysection{parser.\+cpp File Reference}
+\label{parser_8cpp}\index{parser.cpp@{parser.cpp}}
+{\ttfamily \#include \char`\"{}parser.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Ast.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Ast\+Alternative.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Atom.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Special\+Ast.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$memory$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{parser_8cpp_a87ec7be3f7cb93e841bea0661d7af8af}\label{parser_8cpp_a87ec7be3f7cb93e841bea0661d7af8af}} 
+typedef std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_ast}{Ast}} $>$ {\bfseries Ast\+Pointer}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{parser_8cpp_a0073f80b8082c63b8506e7347554376d}\label{parser_8cpp_a0073f80b8082c63b8506e7347554376d}} 
+Ast\+Pointer {\bfseries parser} (std\+::string input)
+\item 
+\mbox{\Hypertarget{parser_8cpp_ad2ad166017b7b0fd72d47b445f3b76e5}\label{parser_8cpp_ad2ad166017b7b0fd72d47b445f3b76e5}} 
+\mbox{\hyperlink{class_special_ast}{Special\+Ast}} {\bfseries special\+Ast\+Assembly} (std\+::string \&input)
+\item 
+\mbox{\Hypertarget{parser_8cpp_a6969bb9673a0be311fc2a323fa36e4b0}\label{parser_8cpp_a6969bb9673a0be311fc2a323fa36e4b0}} 
+std\+::string {\bfseries corresponding\+String} (char c)
+\begin{DoxyCompactList}\small\item\em Given the special character, returns the string corresponding to the range of this special character. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{parser_8cpp_a240b7383ad15bd68fe0085d815943c8d}\label{parser_8cpp_a240b7383ad15bd68fe0085d815943c8d}} 
+int {\bfseries find\+Or} (std\+::string \&input)
+\begin{DoxyCompactList}\small\item\em Find the first occurence of the \textquotesingle{}or\textquotesingle{} operator in a string. Default value is -\/1 if no occurence is found. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{parser_8cpp_af788df0ee49718608d928400263efee4}\label{parser_8cpp_af788df0ee49718608d928400263efee4}} 
+int {\bfseries find\+Closure} (std\+::string \&input, int start)
+\begin{DoxyCompactList}\small\item\em Finds the position of the closing parenthesis of a subexpression. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{parser_8cpp_a9e1a2aed1dc136ef66b60c71f69895b6}\label{parser_8cpp_a9e1a2aed1dc136ef66b60c71f69895b6}} 
+int {\bfseries find\+Squared\+Closure} (std\+::string \&input, int start)
+\begin{DoxyCompactList}\small\item\em Finds the position of the closing square bracket of a subexpression. (for ranges) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{parser_8cpp_a12a060c30d2cce0fbf8e15fe4e04a032}\label{parser_8cpp_a12a060c30d2cce0fbf8e15fe4e04a032}} 
+bool {\bfseries is\+AQuantifier} (char c)
+\begin{DoxyCompactList}\small\item\em Checks if a character is one of\+: \char`\"{}+\char`\"{}, \char`\"{}$\ast$\char`\"{}, \char`\"{}?\char`\"{}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{parser_8cpp_acdf2d5866615f80881d425ed013d49f5}\label{parser_8cpp_acdf2d5866615f80881d425ed013d49f5}} 
+bool {\bfseries is\+Reserved} (char c)
+\begin{DoxyCompactList}\small\item\em Checks if a character is one of\+: \char`\"{}d\char`\"{}, \char`\"{}\+D\char`\"{}, \char`\"{}l\char`\"{}, \char`\"{}\+L\char`\"{}, \char`\"{}u\char`\"{}, \char`\"{}\+U\char`\"{}, \char`\"{}w\char`\"{} , \char`\"{}\+W\char`\"{}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Parses a string into an AST structure. 

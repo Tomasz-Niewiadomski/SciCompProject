@@ -1,0 +1,89 @@
+\hypertarget{class_special_matcher}{}\doxysection{Special\+Matcher Class Reference}
+\label{class_special_matcher}\index{SpecialMatcher@{SpecialMatcher}}
+
+
+Special transitions matcher for ranges and special characters.  
+
+
+
+
+{\ttfamily \#include $<$Special\+Matcher.\+h$>$}
+
+Inheritance diagram for Special\+Matcher\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_special_matcher}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_special_matcher_a14fc53709b0e9ecac21fc29a39f2ccd2}\label{class_special_matcher_a14fc53709b0e9ecac21fc29a39f2ccd2}} 
+{\bfseries Special\+Matcher} (\mbox{\hyperlink{class_matcher}{Matcher}} \&matcher)
+\begin{DoxyCompactList}\small\item\em Used for creating a copy of the \mbox{\hyperlink{class_special_matcher}{Special\+Matcher}}. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_special_matcher_a779b43849b18f93f3cf6ad21756d4148}{matches}} (std\+::string character) override
+\begin{DoxyCompactList}\small\item\em Overriden to return true if the input string lies in the range of the ranges attribute of this matcher. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{class_special_matcher_a44785e0a60f840c8f218446245083792}{print\+Label}} ()
+\begin{DoxyCompactList}\small\item\em Overriden to print \char`\"{}\+Special matcher\char`\"{}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_special_matcher_ad6cc8fec30958d42ac60fd912114518e}\label{class_special_matcher_ad6cc8fec30958d42ac60fd912114518e}} 
+void {\bfseries set\+Ranges} (char starting, char ending, bool not\+Neg)
+\begin{DoxyCompactList}\small\item\em Creates a new range and pushes it into the vector of ranges. Takes the starting and ending characters and a boolean value that is false if the range is negated. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_special_matcher_a64033fe25492db7d789bbe08a8de8f75}\label{class_special_matcher_a64033fe25492db7d789bbe08a8de8f75}} 
+void {\bfseries set\+Ranges} (\mbox{\hyperlink{class_range}{Range}} range)
+\begin{DoxyCompactList}\small\item\em Pushes existing range into the vector of ranges. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_matcher}{Matcher}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual bool \mbox{\hyperlink{class_matcher_a5aeafae672e99c32f025ae44c86c640d}{matches}} (std\+::string character)
+\begin{DoxyCompactList}\small\item\em Returns true if the input string matches this matcher. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{class_matcher_a6810e3b72135e29e3d4737b150fcd8f6}{is\+Epsilon}} ()
+\begin{DoxyCompactList}\small\item\em Returns true if the matcher is an epsilon matcher. \end{DoxyCompactList}\item 
+virtual std\+::string \mbox{\hyperlink{class_matcher_a1f9d288b795d20423c41c692fe4ebfc5}{print\+Label}} ()
+\begin{DoxyCompactList}\small\item\em Prints a label corresponding to the matcher type. Generic\+: \char`\"{}unidentified matcher\char`\"{}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+\doxysubsubsection*{Public Attributes inherited from \mbox{\hyperlink{class_matcher}{Matcher}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_matcher_ac434553c6125634315785d14a8668a96}\label{class_matcher_ac434553c6125634315785d14a8668a96}} 
+std\+::vector$<$ \mbox{\hyperlink{class_range}{Range}} $>$ {\bfseries ranges}
+\begin{DoxyCompactList}\small\item\em Vector of ranges only to be used for the \mbox{\hyperlink{class_special_matcher}{Special\+Matcher}} class. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Special transitions matcher for ranges and special characters. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_special_matcher_a779b43849b18f93f3cf6ad21756d4148}\label{class_special_matcher_a779b43849b18f93f3cf6ad21756d4148}} 
+\index{SpecialMatcher@{SpecialMatcher}!matches@{matches}}
+\index{matches@{matches}!SpecialMatcher@{SpecialMatcher}}
+\doxysubsubsection{\texorpdfstring{matches()}{matches()}}
+{\footnotesize\ttfamily bool Special\+Matcher\+::matches (\begin{DoxyParamCaption}\item[{std\+::string}]{character }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Overriden to return true if the input string lies in the range of the ranges attribute of this matcher. 
+
+
+
+Reimplemented from \mbox{\hyperlink{class_matcher_a5aeafae672e99c32f025ae44c86c640d}{Matcher}}.
+
+\mbox{\Hypertarget{class_special_matcher_a44785e0a60f840c8f218446245083792}\label{class_special_matcher_a44785e0a60f840c8f218446245083792}} 
+\index{SpecialMatcher@{SpecialMatcher}!printLabel@{printLabel}}
+\index{printLabel@{printLabel}!SpecialMatcher@{SpecialMatcher}}
+\doxysubsubsection{\texorpdfstring{printLabel()}{printLabel()}}
+{\footnotesize\ttfamily std\+::string Special\+Matcher\+::print\+Label (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Overriden to print \char`\"{}\+Special matcher\char`\"{}. 
+
+
+
+Reimplemented from \mbox{\hyperlink{class_matcher_a1f9d288b795d20423c41c692fe4ebfc5}{Matcher}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Special\+Matcher.\+h\item 
+Special\+Matcher.\+cpp\end{DoxyCompactItemize}

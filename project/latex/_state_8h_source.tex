@@ -1,0 +1,43 @@
+\hypertarget{_state_8h_source}{}\doxysection{State.\+h}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}Matcher.h"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}CharacterMatcher.h"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}EpsilonMatcher.h"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00010\ \textcolor{keyword}{typedef}\ std::shared\_ptr<Matcher>\ MatchPointer;}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00014\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_transition}{Transition}}}
+\DoxyCodeLine{00015\ \ \ \ \ \{}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ toState;}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ MatchPointer\ matcher;}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_transition_a1e6c9d68bfdc3b567529d32fda97a270}{Transition}}(\textcolor{keywordtype}{int}\ givenState,\ MatchPointer\ givenMatcher)\ :\ toState(givenState)\{}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \ \ \ \ matcher\ =\ givenMatcher;}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00023\ \};}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00027\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_state}{State}}}
+\DoxyCodeLine{00028\ \{\ \ \ }
+\DoxyCodeLine{00029\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00032\ \ \ \ \ std::string\ \mbox{\hyperlink{class_state_aed83304bf27c38ae673f1addd03bda5f}{stateName}};}
+\DoxyCodeLine{00034\ \ \ \ \ std::vector<Transition>\ \mbox{\hyperlink{class_state_af88dc8edeef02969d5d1c5f2ad9087bf}{stateTransitions}};}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \ \ \ \ \mbox{\hyperlink{class_state}{State}}();}
+\DoxyCodeLine{00037\ \ \ \ \ \mbox{\hyperlink{class_state}{State}}(std::string\ name);}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_state_a3dcd8f6144469ef4439bbfad44e61112}{addTransition}}(\textcolor{keywordtype}{int}\ givenToState,\ \mbox{\hyperlink{class_matcher}{Matcher}}\&\ givenMatcher);}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keywordtype}{void}\ moveTransitions(\textcolor{keywordtype}{int}\ traslation);}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keywordtype}{void}\ myState();}
+\DoxyCodeLine{00047\ \ \ \ \ }
+\DoxyCodeLine{00048\ \};}
+\DoxyCodeLine{00049\ }
+
+\end{DoxyCode}

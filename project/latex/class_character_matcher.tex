@@ -1,0 +1,103 @@
+\hypertarget{class_character_matcher}{}\doxysection{Character\+Matcher Class Reference}
+\label{class_character_matcher}\index{CharacterMatcher@{CharacterMatcher}}
+
+
+Simple character transition matcher that consumes the character if it matches.  
+
+
+
+
+{\ttfamily \#include $<$Character\+Matcher.\+h$>$}
+
+Inheritance diagram for Character\+Matcher\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_character_matcher}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_character_matcher_a738b4bc6d1a7fcc65c9eb29e28987dea}\label{class_character_matcher_a738b4bc6d1a7fcc65c9eb29e28987dea}} 
+{\bfseries Character\+Matcher} (std\+::string given\+Character)
+\begin{DoxyCompactList}\small\item\em Constructor that sets the character attribute of this matcher. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_character_matcher_a0ae5b4189ee45303caacba719441024e}{matches}} (std\+::string character) override
+\begin{DoxyCompactList}\small\item\em Overriden to return true if the input string matches the character ( c ) attribute of this matcher. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_character_matcher_a57e76644ffd262b78f316f7c09173b8b}{is\+Epsilon}} () override
+\begin{DoxyCompactList}\small\item\em Overriden to return false. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{class_character_matcher_a32479105f45c3c607ae160315c8918f9}{print\+Label}} () override
+\begin{DoxyCompactList}\small\item\em Overriden to print the character ( c ) attribute of this matcher. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+virtual bool \mbox{\hyperlink{class_matcher_a5aeafae672e99c32f025ae44c86c640d}{matches}} (std\+::string character)
+\begin{DoxyCompactList}\small\item\em Returns true if the input string matches this matcher. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{class_matcher_a6810e3b72135e29e3d4737b150fcd8f6}{is\+Epsilon}} ()
+\begin{DoxyCompactList}\small\item\em Returns true if the matcher is an epsilon matcher. \end{DoxyCompactList}\item 
+virtual std\+::string \mbox{\hyperlink{class_matcher_a1f9d288b795d20423c41c692fe4ebfc5}{print\+Label}} ()
+\begin{DoxyCompactList}\small\item\em Prints a label corresponding to the matcher type. Generic\+: \char`\"{}unidentified matcher\char`\"{}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_character_matcher_a4009f5a92ac2668b64391f485f2ae4e0}\label{class_character_matcher_a4009f5a92ac2668b64391f485f2ae4e0}} 
+std\+::string {\bfseries c}
+\begin{DoxyCompactList}\small\item\em Character attribute of this matcher. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes inherited from \mbox{\hyperlink{class_matcher}{Matcher}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_matcher_ac434553c6125634315785d14a8668a96}\label{class_matcher_ac434553c6125634315785d14a8668a96}} 
+std\+::vector$<$ \mbox{\hyperlink{class_range}{Range}} $>$ {\bfseries ranges}
+\begin{DoxyCompactList}\small\item\em Vector of ranges only to be used for the \mbox{\hyperlink{class_special_matcher}{Special\+Matcher}} class. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Simple character transition matcher that consumes the character if it matches. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_character_matcher_a57e76644ffd262b78f316f7c09173b8b}\label{class_character_matcher_a57e76644ffd262b78f316f7c09173b8b}} 
+\index{CharacterMatcher@{CharacterMatcher}!isEpsilon@{isEpsilon}}
+\index{isEpsilon@{isEpsilon}!CharacterMatcher@{CharacterMatcher}}
+\doxysubsubsection{\texorpdfstring{isEpsilon()}{isEpsilon()}}
+{\footnotesize\ttfamily bool Character\+Matcher\+::is\+Epsilon (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Overriden to return false. 
+
+
+
+Reimplemented from \mbox{\hyperlink{class_matcher_a6810e3b72135e29e3d4737b150fcd8f6}{Matcher}}.
+
+\mbox{\Hypertarget{class_character_matcher_a0ae5b4189ee45303caacba719441024e}\label{class_character_matcher_a0ae5b4189ee45303caacba719441024e}} 
+\index{CharacterMatcher@{CharacterMatcher}!matches@{matches}}
+\index{matches@{matches}!CharacterMatcher@{CharacterMatcher}}
+\doxysubsubsection{\texorpdfstring{matches()}{matches()}}
+{\footnotesize\ttfamily bool Character\+Matcher\+::matches (\begin{DoxyParamCaption}\item[{std\+::string}]{character }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Overriden to return true if the input string matches the character ( c ) attribute of this matcher. 
+
+
+
+Reimplemented from \mbox{\hyperlink{class_matcher_a5aeafae672e99c32f025ae44c86c640d}{Matcher}}.
+
+\mbox{\Hypertarget{class_character_matcher_a32479105f45c3c607ae160315c8918f9}\label{class_character_matcher_a32479105f45c3c607ae160315c8918f9}} 
+\index{CharacterMatcher@{CharacterMatcher}!printLabel@{printLabel}}
+\index{printLabel@{printLabel}!CharacterMatcher@{CharacterMatcher}}
+\doxysubsubsection{\texorpdfstring{printLabel()}{printLabel()}}
+{\footnotesize\ttfamily std\+::string Character\+Matcher\+::print\+Label (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Overriden to print the character ( c ) attribute of this matcher. 
+
+
+
+Reimplemented from \mbox{\hyperlink{class_matcher_a1f9d288b795d20423c41c692fe4ebfc5}{Matcher}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Character\+Matcher.\+h\item 
+Character\+Matcher.\+cpp\end{DoxyCompactItemize}

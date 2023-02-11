@@ -1,0 +1,172 @@
+\hypertarget{class_ast}{}\doxysection{Ast Class Reference}
+\label{class_ast}\index{Ast@{Ast}}
+
+
+General abstract syntax tree.  
+
+
+
+
+{\ttfamily \#include $<$Ast.\+h$>$}
+
+Inheritance diagram for Ast\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_ast}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_ast_a6c766fbbbb8fdc02cdc838832b5c40c2}\label{class_ast_a6c766fbbbb8fdc02cdc838832b5c40c2}} 
+typedef std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_ast}{Ast}} $>$ {\bfseries Ast\+Pointer}
+\item 
+\mbox{\Hypertarget{class_ast_a5fdc32fcca01609c93970e4e200e78ce}\label{class_ast_a5fdc32fcca01609c93970e4e200e78ce}} 
+typedef std\+::vector$<$ Ast\+Pointer $>$ {\bfseries Ast\+Vector}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_ast_ab7c1f29799e7864d38b1f8059143d287}\label{class_ast_ab7c1f29799e7864d38b1f8059143d287}} 
+{\bfseries Ast} (std\+::string input)
+\item 
+\mbox{\Hypertarget{class_ast_ab62ecb0595548f20b30bf55c1ec79446}\label{class_ast_ab62ecb0595548f20b30bf55c1ec79446}} 
+void {\bfseries add\+Sub\+Expr} (Ast\+Pointer point)
+\begin{DoxyCompactList}\small\item\em Pushes back a subexpression to the sub\+Expr vector. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_ast_ad81a044bc14d7525169affe3a755f741}{who\+AmI}} ()
+\begin{DoxyCompactList}\small\item\em Prints the type of the current node and the type of its subexpressions. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{class_ast_a1eb463a25956ee288b9e1db97950d301}{is\+An\+Ast}} ()
+\begin{DoxyCompactList}\small\item\em Returns true if the current node is an \mbox{\hyperlink{class_ast}{Ast}}. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{class_ast_a11ab595fd7b28c3f82c62d7d12b538c5}{is\+An\+Alternative}} ()
+\begin{DoxyCompactList}\small\item\em Returns true if the current node is an \mbox{\hyperlink{class_ast_alternative}{Ast\+Alternative}}. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{class_ast_a78165cfdefeba55b5ca97693c97ecd21}{is\+An\+Atom}} ()
+\begin{DoxyCompactList}\small\item\em Returns true if the current node is an \mbox{\hyperlink{class_atom}{Atom}}. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{class_ast_afc4433dca000b38a46509921b1c5651c}{is\+It\+Special}} ()
+\begin{DoxyCompactList}\small\item\em Returns true if the current node is a \mbox{\hyperlink{class_special_ast}{Special\+Ast}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_ast_aed0f4a25fc8e58171f5f36b3d79cd52b}\label{class_ast_aed0f4a25fc8e58171f5f36b3d79cd52b}} 
+Ast\+Vector {\bfseries sub\+Expr}
+\begin{DoxyCompactList}\small\item\em A vector of Ast\+Pointers that are the subexpressions (branches) of the current expression (tree). \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_ast_a2eb1fa8764de2aada127dad9b2b5a833}\label{class_ast_a2eb1fa8764de2aada127dad9b2b5a833}} 
+std\+::string {\bfseries expression}
+\begin{DoxyCompactList}\small\item\em A string that is the expression of the current node. ~\newline
+ \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_ast_aea18ef9928f1fd24e0d8f8d22d0abb09}\label{class_ast_aea18ef9928f1fd24e0d8f8d22d0abb09}} 
+char {\bfseries quantifier}
+\begin{DoxyCompactList}\small\item\em Quantifier of a given expression. ~\newline
+ \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_ast_a82eb66f9106440573706271607b08e0c}\label{class_ast_a82eb66f9106440573706271607b08e0c}} 
+std\+::string {\bfseries type\+Name}
+\begin{DoxyCompactList}\small\item\em The name of the type of the \mbox{\hyperlink{class_ast}{Ast}}. Either \char`\"{}\+Ast\+Alternative\char`\"{} or \char`\"{}\+Ast\char`\"{} or \char`\"{}\+Atom\char`\"{} or \char`\"{}\+Special\char`\"{}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_ast_af1760ed5b0b17547d9a02a81185a995e}\label{class_ast_af1760ed5b0b17547d9a02a81185a995e}} 
+std\+::vector$<$ \mbox{\hyperlink{class_range}{Range}} $>$ {\bfseries ranges}
+\begin{DoxyCompactList}\small\item\em Vector of ranges for the special\+Ast class. We know this isn\textquotesingle{}t really correct, but it is definetely the easiest way. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Related Functions}
+(Note that these are not member functions.) \begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{class_ast_af788df0ee49718608d928400263efee4}{find\+Closure}} (std\+::string \&input, int start)
+\item 
+bool \mbox{\hyperlink{class_ast_a12a060c30d2cce0fbf8e15fe4e04a032}{is\+AQuantifier}} (char c)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+General abstract syntax tree. 
+
+This class is the base class for all the other \mbox{\hyperlink{class_ast}{Ast}} classes. The virtual identifier functions are subsequentely overridden in the derived classes. The \mbox{\hyperlink{class_ast}{Ast}} class is used to store the regular expression in a tree structure. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_ast_a11ab595fd7b28c3f82c62d7d12b538c5}\label{class_ast_a11ab595fd7b28c3f82c62d7d12b538c5}} 
+\index{Ast@{Ast}!isAnAlternative@{isAnAlternative}}
+\index{isAnAlternative@{isAnAlternative}!Ast@{Ast}}
+\doxysubsubsection{\texorpdfstring{isAnAlternative()}{isAnAlternative()}}
+{\footnotesize\ttfamily bool Ast\+::is\+An\+Alternative (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Returns true if the current node is an \mbox{\hyperlink{class_ast_alternative}{Ast\+Alternative}}. 
+
+
+
+Reimplemented in \mbox{\hyperlink{class_ast_alternative_aef2a051013d6443ff1b4ef852c56bfc5}{Ast\+Alternative}}.
+
+\mbox{\Hypertarget{class_ast_a1eb463a25956ee288b9e1db97950d301}\label{class_ast_a1eb463a25956ee288b9e1db97950d301}} 
+\index{Ast@{Ast}!isAnAst@{isAnAst}}
+\index{isAnAst@{isAnAst}!Ast@{Ast}}
+\doxysubsubsection{\texorpdfstring{isAnAst()}{isAnAst()}}
+{\footnotesize\ttfamily bool Ast\+::is\+An\+Ast (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Returns true if the current node is an \mbox{\hyperlink{class_ast}{Ast}}. 
+
+
+
+Reimplemented in \mbox{\hyperlink{class_ast_alternative_a54854265383c3b42614c443857c4c958}{Ast\+Alternative}}, \mbox{\hyperlink{class_atom_a68fb418e54d900fd4cf3cde7280f37dc}{Atom}}, and \mbox{\hyperlink{class_special_ast_af54cbe8209bd1a891b4f1c345b9384bf}{Special\+Ast}}.
+
+\mbox{\Hypertarget{class_ast_a78165cfdefeba55b5ca97693c97ecd21}\label{class_ast_a78165cfdefeba55b5ca97693c97ecd21}} 
+\index{Ast@{Ast}!isAnAtom@{isAnAtom}}
+\index{isAnAtom@{isAnAtom}!Ast@{Ast}}
+\doxysubsubsection{\texorpdfstring{isAnAtom()}{isAnAtom()}}
+{\footnotesize\ttfamily bool Ast\+::is\+An\+Atom (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Returns true if the current node is an \mbox{\hyperlink{class_atom}{Atom}}. 
+
+
+
+Reimplemented in \mbox{\hyperlink{class_atom_a45397e2ecb10b8144c35719ff84fbb98}{Atom}}.
+
+\mbox{\Hypertarget{class_ast_afc4433dca000b38a46509921b1c5651c}\label{class_ast_afc4433dca000b38a46509921b1c5651c}} 
+\index{Ast@{Ast}!isItSpecial@{isItSpecial}}
+\index{isItSpecial@{isItSpecial}!Ast@{Ast}}
+\doxysubsubsection{\texorpdfstring{isItSpecial()}{isItSpecial()}}
+{\footnotesize\ttfamily bool Ast\+::is\+It\+Special (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Returns true if the current node is a \mbox{\hyperlink{class_special_ast}{Special\+Ast}}. 
+
+
+
+Reimplemented in \mbox{\hyperlink{class_special_ast_a4140793539afef70e976a24eeefca781}{Special\+Ast}}.
+
+\mbox{\Hypertarget{class_ast_ad81a044bc14d7525169affe3a755f741}\label{class_ast_ad81a044bc14d7525169affe3a755f741}} 
+\index{Ast@{Ast}!whoAmI@{whoAmI}}
+\index{whoAmI@{whoAmI}!Ast@{Ast}}
+\doxysubsubsection{\texorpdfstring{whoAmI()}{whoAmI()}}
+{\footnotesize\ttfamily void Ast\+::who\+AmI (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Prints the type of the current node and the type of its subexpressions. 
+
+
+
+Reimplemented in \mbox{\hyperlink{class_ast_alternative_a2acf5048efbf2297814b40701eba2413}{Ast\+Alternative}}, and \mbox{\hyperlink{class_atom_ab2069133eaba5c9ee6c831f2cfe472f5}{Atom}}.
+
+
+
+\doxysubsection{Friends And Related Function Documentation}
+\mbox{\Hypertarget{class_ast_af788df0ee49718608d928400263efee4}\label{class_ast_af788df0ee49718608d928400263efee4}} 
+\index{Ast@{Ast}!findClosure@{findClosure}}
+\index{findClosure@{findClosure}!Ast@{Ast}}
+\doxysubsubsection{\texorpdfstring{findClosure()}{findClosure()}}
+{\footnotesize\ttfamily int find\+Closure (\begin{DoxyParamCaption}\item[{std\+::string \&}]{input,  }\item[{int}]{start }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [related]}}
+
+Finds the position of the closing parenthesis of a subexpression. \mbox{\Hypertarget{class_ast_a12a060c30d2cce0fbf8e15fe4e04a032}\label{class_ast_a12a060c30d2cce0fbf8e15fe4e04a032}} 
+\index{Ast@{Ast}!isAQuantifier@{isAQuantifier}}
+\index{isAQuantifier@{isAQuantifier}!Ast@{Ast}}
+\doxysubsubsection{\texorpdfstring{isAQuantifier()}{isAQuantifier()}}
+{\footnotesize\ttfamily bool is\+AQuantifier (\begin{DoxyParamCaption}\item[{char}]{c }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [related]}}
+
+Checks if a character is one of\+: \char`\"{}+\char`\"{}, \char`\"{}$\ast$\char`\"{}, \char`\"{}?\char`\"{}. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Ast.\+h\item 
+Ast.\+cpp\item 
+parser.\+cpp\end{DoxyCompactItemize}

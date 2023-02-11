@@ -1,0 +1,33 @@
+\hypertarget{parser_8h_source}{}\doxysection{parser.\+h}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}Ast.h"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}AstAlternative.h"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}Atom.h"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}SpecialAst.h"{}}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{keyword}{typedef}\ std::shared\_ptr<Ast>\ AstPointer;}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{keywordtype}{int}\ findOr(std::string\&\ input);}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{keywordtype}{int}\ findClosure(std::string\&\ input,\ \textcolor{keywordtype}{int}\ start);}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{keywordtype}{int}\ findSquaredClosure(std::string\&\ input,\ \textcolor{keywordtype}{int}\ start);}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{keywordtype}{bool}\ isAQuantifier(\textcolor{keywordtype}{char}\ c);}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \textcolor{keywordtype}{bool}\ isReserved(\textcolor{keywordtype}{char}\ c);}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ std::string\ correspondingString(\textcolor{keywordtype}{char}\ c);}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \mbox{\hyperlink{class_special_ast}{SpecialAst}}\ specialAstAssembly(std::string\&\ input);}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ AstPointer\ parser(std::string\ input);}
+
+\end{DoxyCode}

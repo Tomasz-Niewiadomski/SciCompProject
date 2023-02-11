@@ -1,5 +1,5 @@
 CXX = g++ -std=c++17
-CXXFLAGS = -Wall -Werror
+CXXFLAGS = -Wall
 
 main: main.o
 	$(CXX) $(CXXFLAGS) -O -o main main.o engineCreator.o EngineNFA.o State.o SpecialMatcher.o EpsilonMatcher.o CharacterMatcher.o Matcher.o parser.o Ast.o AstAlternative.o Atom.o SpecialAst.o Range.o

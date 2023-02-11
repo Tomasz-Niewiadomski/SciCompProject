@@ -1,0 +1,156 @@
+\hypertarget{class_ast_alternative}{}\doxysection{Ast\+Alternative Class Reference}
+\label{class_ast_alternative}\index{AstAlternative@{AstAlternative}}
+
+
+Alternatives (the \textquotesingle{}or\textquotesingle{} operation) in a regular expression.  
+
+
+
+
+{\ttfamily \#include $<$Ast\+Alternative.\+h$>$}
+
+Inheritance diagram for Ast\+Alternative\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_ast_alternative}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_ast_alternative_a61abbe815cf8bea8ae614615e066125f}\label{class_ast_alternative_a61abbe815cf8bea8ae614615e066125f}} 
+{\bfseries Ast\+Alternative} (Ast\+Pointer reg1, Ast\+Pointer reg2)
+\item 
+void \mbox{\hyperlink{class_ast_alternative_a2acf5048efbf2297814b40701eba2413}{who\+AmI}} () override
+\begin{DoxyCompactList}\small\item\em Overrides to print the type of the current node and the type of its subexpressions. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_ast_alternative_a54854265383c3b42614c443857c4c958}{is\+An\+Ast}} () override
+\begin{DoxyCompactList}\small\item\em Overrides to return false. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_ast_alternative_aef2a051013d6443ff1b4ef852c56bfc5}{is\+An\+Alternative}} () override
+\begin{DoxyCompactList}\small\item\em Overrides to return true. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_ast}{Ast}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_ast_ab7c1f29799e7864d38b1f8059143d287}\label{class_ast_ab7c1f29799e7864d38b1f8059143d287}} 
+{\bfseries Ast} (std\+::string input)
+\item 
+\mbox{\Hypertarget{class_ast_ab62ecb0595548f20b30bf55c1ec79446}\label{class_ast_ab62ecb0595548f20b30bf55c1ec79446}} 
+void {\bfseries add\+Sub\+Expr} (Ast\+Pointer point)
+\begin{DoxyCompactList}\small\item\em Pushes back a subexpression to the sub\+Expr vector. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_ast_ad81a044bc14d7525169affe3a755f741}{who\+AmI}} ()
+\begin{DoxyCompactList}\small\item\em Prints the type of the current node and the type of its subexpressions. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{class_ast_a1eb463a25956ee288b9e1db97950d301}{is\+An\+Ast}} ()
+\begin{DoxyCompactList}\small\item\em Returns true if the current node is an \mbox{\hyperlink{class_ast}{Ast}}. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{class_ast_a11ab595fd7b28c3f82c62d7d12b538c5}{is\+An\+Alternative}} ()
+\begin{DoxyCompactList}\small\item\em Returns true if the current node is an \mbox{\hyperlink{class_ast_alternative}{Ast\+Alternative}}. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{class_ast_a78165cfdefeba55b5ca97693c97ecd21}{is\+An\+Atom}} ()
+\begin{DoxyCompactList}\small\item\em Returns true if the current node is an \mbox{\hyperlink{class_atom}{Atom}}. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{class_ast_afc4433dca000b38a46509921b1c5651c}{is\+It\+Special}} ()
+\begin{DoxyCompactList}\small\item\em Returns true if the current node is a \mbox{\hyperlink{class_special_ast}{Special\+Ast}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Related Functions}
+(Note that these are not member functions.) \begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{class_ast_alternative_a240b7383ad15bd68fe0085d815943c8d}{find\+Or}} (std\+::string \&input)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Related Functions inherited from \mbox{\hyperlink{class_ast}{Ast}}}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{class_ast_af788df0ee49718608d928400263efee4}{find\+Closure}} (std\+::string \&input, int start)
+\item 
+bool \mbox{\hyperlink{class_ast_a12a060c30d2cce0fbf8e15fe4e04a032}{is\+AQuantifier}} (char c)
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+\doxysubsubsection*{Public Types inherited from \mbox{\hyperlink{class_ast}{Ast}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_ast_a6c766fbbbb8fdc02cdc838832b5c40c2}\label{class_ast_a6c766fbbbb8fdc02cdc838832b5c40c2}} 
+typedef std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_ast}{Ast}} $>$ {\bfseries Ast\+Pointer}
+\item 
+\mbox{\Hypertarget{class_ast_a5fdc32fcca01609c93970e4e200e78ce}\label{class_ast_a5fdc32fcca01609c93970e4e200e78ce}} 
+typedef std\+::vector$<$ Ast\+Pointer $>$ {\bfseries Ast\+Vector}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes inherited from \mbox{\hyperlink{class_ast}{Ast}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_ast_aed0f4a25fc8e58171f5f36b3d79cd52b}\label{class_ast_aed0f4a25fc8e58171f5f36b3d79cd52b}} 
+Ast\+Vector {\bfseries sub\+Expr}
+\begin{DoxyCompactList}\small\item\em A vector of Ast\+Pointers that are the subexpressions (branches) of the current expression (tree). \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_ast_a2eb1fa8764de2aada127dad9b2b5a833}\label{class_ast_a2eb1fa8764de2aada127dad9b2b5a833}} 
+std\+::string {\bfseries expression}
+\begin{DoxyCompactList}\small\item\em A string that is the expression of the current node. ~\newline
+ \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_ast_aea18ef9928f1fd24e0d8f8d22d0abb09}\label{class_ast_aea18ef9928f1fd24e0d8f8d22d0abb09}} 
+char {\bfseries quantifier}
+\begin{DoxyCompactList}\small\item\em Quantifier of a given expression. ~\newline
+ \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_ast_a82eb66f9106440573706271607b08e0c}\label{class_ast_a82eb66f9106440573706271607b08e0c}} 
+std\+::string {\bfseries type\+Name}
+\begin{DoxyCompactList}\small\item\em The name of the type of the \mbox{\hyperlink{class_ast}{Ast}}. Either \char`\"{}\+Ast\+Alternative\char`\"{} or \char`\"{}\+Ast\char`\"{} or \char`\"{}\+Atom\char`\"{} or \char`\"{}\+Special\char`\"{}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_ast_af1760ed5b0b17547d9a02a81185a995e}\label{class_ast_af1760ed5b0b17547d9a02a81185a995e}} 
+std\+::vector$<$ \mbox{\hyperlink{class_range}{Range}} $>$ {\bfseries ranges}
+\begin{DoxyCompactList}\small\item\em Vector of ranges for the special\+Ast class. We know this isn\textquotesingle{}t really correct, but it is definetely the easiest way. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Alternatives (the \textquotesingle{}or\textquotesingle{} operation) in a regular expression. 
+
+The \textquotesingle{}or\textquotesingle{} operation splits the regular expression into two, that get represented by an \mbox{\hyperlink{class_ast}{Ast}} object with two subexpressions. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_ast_alternative_aef2a051013d6443ff1b4ef852c56bfc5}\label{class_ast_alternative_aef2a051013d6443ff1b4ef852c56bfc5}} 
+\index{AstAlternative@{AstAlternative}!isAnAlternative@{isAnAlternative}}
+\index{isAnAlternative@{isAnAlternative}!AstAlternative@{AstAlternative}}
+\doxysubsubsection{\texorpdfstring{isAnAlternative()}{isAnAlternative()}}
+{\footnotesize\ttfamily bool Ast\+Alternative\+::is\+An\+Alternative (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Overrides to return true. 
+
+
+
+Reimplemented from \mbox{\hyperlink{class_ast_a11ab595fd7b28c3f82c62d7d12b538c5}{Ast}}.
+
+\mbox{\Hypertarget{class_ast_alternative_a54854265383c3b42614c443857c4c958}\label{class_ast_alternative_a54854265383c3b42614c443857c4c958}} 
+\index{AstAlternative@{AstAlternative}!isAnAst@{isAnAst}}
+\index{isAnAst@{isAnAst}!AstAlternative@{AstAlternative}}
+\doxysubsubsection{\texorpdfstring{isAnAst()}{isAnAst()}}
+{\footnotesize\ttfamily bool Ast\+Alternative\+::is\+An\+Ast (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Overrides to return false. 
+
+
+
+Reimplemented from \mbox{\hyperlink{class_ast_a1eb463a25956ee288b9e1db97950d301}{Ast}}.
+
+\mbox{\Hypertarget{class_ast_alternative_a2acf5048efbf2297814b40701eba2413}\label{class_ast_alternative_a2acf5048efbf2297814b40701eba2413}} 
+\index{AstAlternative@{AstAlternative}!whoAmI@{whoAmI}}
+\index{whoAmI@{whoAmI}!AstAlternative@{AstAlternative}}
+\doxysubsubsection{\texorpdfstring{whoAmI()}{whoAmI()}}
+{\footnotesize\ttfamily void Ast\+Alternative\+::who\+AmI (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Overrides to print the type of the current node and the type of its subexpressions. 
+
+
+
+Reimplemented from \mbox{\hyperlink{class_ast_ad81a044bc14d7525169affe3a755f741}{Ast}}.
+
+
+
+\doxysubsection{Friends And Related Function Documentation}
+\mbox{\Hypertarget{class_ast_alternative_a240b7383ad15bd68fe0085d815943c8d}\label{class_ast_alternative_a240b7383ad15bd68fe0085d815943c8d}} 
+\index{AstAlternative@{AstAlternative}!findOr@{findOr}}
+\index{findOr@{findOr}!AstAlternative@{AstAlternative}}
+\doxysubsubsection{\texorpdfstring{findOr()}{findOr()}}
+{\footnotesize\ttfamily int find\+Or (\begin{DoxyParamCaption}\item[{std\+::string \&}]{input }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [related]}}
+
+Find the first occurence of the \textquotesingle{}or\textquotesingle{} operator in a string. Default value is -\/1 if no occurence is found. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Ast\+Alternative.\+h\item 
+Ast\+Alternative.\+cpp\item 
+parser.\+cpp\end{DoxyCompactItemize}

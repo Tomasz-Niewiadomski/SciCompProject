@@ -17,7 +17,8 @@ AstPointer parser(std::string input) {
 
 	AstPointer tree;
 
-	if (k > 0)
+	// The string contains an 'or' operator.
+	if (k > 0) 
 	{
 		std::string string1 = input.substr(0, k);
 		std::string string2 = input.substr(k + 1);
@@ -25,12 +26,14 @@ AstPointer parser(std::string input) {
 
 		tree = AstPointer(new AstAlternative(parser(string1), parser(string2)));
 	}
+	// The string doesn't contain an 'or' operator.
 	else
 	{
 		tree = AstPointer(new Ast(input));
 
 		int max = static_cast<int>(input.length());
 
+		// Iterates over the string.
 		for (int i = 0; i < max; )
 		{
 			if (input[i] == '(')
@@ -191,6 +194,8 @@ SpecialAst specialAstAssembly(std::string& input) {
 	return ret;
 }
 
+/// \related SpecialAst
+/// Given the special character, returns the string corresponding to the range of this special character.
 std::string correspondingString(char c)
 {
 	switch (c)
@@ -224,7 +229,8 @@ std::string correspondingString(char c)
 
 	}
 }
-
+/// \related AstAlternative
+/// Find the first occurence of the 'or' operator in a string. Default value is -1 if no occurence is found.
 int findOr(std::string& input) {
 	int pos = -1;
 
@@ -249,7 +255,8 @@ int findOr(std::string& input) {
 
 	return pos;
 }
-
+/// \related Ast
+/// Finds the position of the closing parenthesis of a subexpression.
 int findClosure(std::string& input, int start) {
 
 	int i;
@@ -281,7 +288,8 @@ int findClosure(std::string& input, int start) {
 	}
 	return i;
 }
-
+/// \related Range
+/// Finds the position of the closing square bracket of a subexpression.
 int findSquaredClosure(std::string& input, int start) {
 
 	int i;
@@ -314,11 +322,14 @@ int findSquaredClosure(std::string& input, int start) {
 	return i;
 }
 
-
+/// \related Ast
+/// Checks if a character is one of: "+", "*", "?".
 bool isAQuantifier(char c) {
 	return ((c == '+') or (c == '*') or (c == '?'));
 }
 
+/// \related SpecialAst
+/// Checks if a character is one of: "d", "D", "l", "L", "u", "U", "w" , "W".
 bool isReserved(char c)
 {
 	switch (c) 

@@ -18,7 +18,8 @@
 
 typedef std::shared_ptr<Ast> AstPointer;
 
-
+/// \related EngineNFA
+/// Given an AST (SpecialAst/Atom/AstAlternative), returns an NFA engine 
 EngineNFA engineCreator(AstPointer input) {
 
 

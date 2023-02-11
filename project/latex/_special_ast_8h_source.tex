@@ -1,0 +1,31 @@
+\hypertarget{_special_ast_8h_source}{}\doxysection{Special\+Ast.\+h}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}Ast.h"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}Range.h"{}}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_special_ast}{SpecialAst}}\ :}
+\DoxyCodeLine{00010\ \ \ \ \ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_ast}{Ast}}}
+\DoxyCodeLine{00011\ \{}
+\DoxyCodeLine{00012\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \ \ \ \ \mbox{\hyperlink{class_special_ast}{SpecialAst}}();}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00017\ \ \ \ \ \mbox{\hyperlink{class_special_ast}{SpecialAst}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_special_ast}{SpecialAst}}\&\ ast);}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_special_ast_af54cbe8209bd1a891b4f1c345b9384bf}{isAnAst}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_special_ast_a4140793539afef70e976a24eeefca781}{isItSpecial}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_special_ast_ae9829d0ce158139d2c236bde170ff128}{setRanges}}(\textcolor{keywordtype}{char}\ starting,\ \textcolor{keywordtype}{char}\ ending,\ \textcolor{keywordtype}{bool}\ notNeg);}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_special_ast_ae9829d0ce158139d2c236bde170ff128}{setRanges}}(\mbox{\hyperlink{class_range}{Range}}\ range);}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \};}
+\DoxyCodeLine{00032\ }
+
+\end{DoxyCode}

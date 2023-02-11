@@ -1,0 +1,86 @@
+\hypertarget{class_matcher}{}\doxysection{Matcher Class Reference}
+\label{class_matcher}\index{Matcher@{Matcher}}
+
+
+General matcher in a transition.  
+
+
+
+
+{\ttfamily \#include $<$Matcher.\+h$>$}
+
+Inheritance diagram for Matcher\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_matcher}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual bool \mbox{\hyperlink{class_matcher_a5aeafae672e99c32f025ae44c86c640d}{matches}} (std\+::string character)
+\begin{DoxyCompactList}\small\item\em Returns true if the input string matches this matcher. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{class_matcher_a6810e3b72135e29e3d4737b150fcd8f6}{is\+Epsilon}} ()
+\begin{DoxyCompactList}\small\item\em Returns true if the matcher is an epsilon matcher. \end{DoxyCompactList}\item 
+virtual std\+::string \mbox{\hyperlink{class_matcher_a1f9d288b795d20423c41c692fe4ebfc5}{print\+Label}} ()
+\begin{DoxyCompactList}\small\item\em Prints a label corresponding to the matcher type. Generic\+: \char`\"{}unidentified matcher\char`\"{}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_matcher_ac434553c6125634315785d14a8668a96}\label{class_matcher_ac434553c6125634315785d14a8668a96}} 
+std\+::vector$<$ \mbox{\hyperlink{class_range}{Range}} $>$ {\bfseries ranges}
+\begin{DoxyCompactList}\small\item\em Vector of ranges only to be used for the \mbox{\hyperlink{class_special_matcher}{Special\+Matcher}} class. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+General matcher in a transition. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_matcher_a6810e3b72135e29e3d4737b150fcd8f6}\label{class_matcher_a6810e3b72135e29e3d4737b150fcd8f6}} 
+\index{Matcher@{Matcher}!isEpsilon@{isEpsilon}}
+\index{isEpsilon@{isEpsilon}!Matcher@{Matcher}}
+\doxysubsubsection{\texorpdfstring{isEpsilon()}{isEpsilon()}}
+{\footnotesize\ttfamily bool Matcher\+::is\+Epsilon (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Returns true if the matcher is an epsilon matcher. 
+
+
+
+Reimplemented in \mbox{\hyperlink{class_character_matcher_a57e76644ffd262b78f316f7c09173b8b}{Character\+Matcher}}, and \mbox{\hyperlink{class_epsilon_matcher_aeb2074a13257a33b6ca8322b79e0c347}{Epsilon\+Matcher}}.
+
+\mbox{\Hypertarget{class_matcher_a5aeafae672e99c32f025ae44c86c640d}\label{class_matcher_a5aeafae672e99c32f025ae44c86c640d}} 
+\index{Matcher@{Matcher}!matches@{matches}}
+\index{matches@{matches}!Matcher@{Matcher}}
+\doxysubsubsection{\texorpdfstring{matches()}{matches()}}
+{\footnotesize\ttfamily bool Matcher\+::matches (\begin{DoxyParamCaption}\item[{std\+::string}]{character }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Returns true if the input string matches this matcher. 
+
+
+
+Reimplemented in \mbox{\hyperlink{class_character_matcher_a0ae5b4189ee45303caacba719441024e}{Character\+Matcher}}, \mbox{\hyperlink{class_epsilon_matcher_afa590a0f88660b191c2cc091004c213a}{Epsilon\+Matcher}}, and \mbox{\hyperlink{class_special_matcher_a779b43849b18f93f3cf6ad21756d4148}{Special\+Matcher}}.
+
+\mbox{\Hypertarget{class_matcher_a1f9d288b795d20423c41c692fe4ebfc5}\label{class_matcher_a1f9d288b795d20423c41c692fe4ebfc5}} 
+\index{Matcher@{Matcher}!printLabel@{printLabel}}
+\index{printLabel@{printLabel}!Matcher@{Matcher}}
+\doxysubsubsection{\texorpdfstring{printLabel()}{printLabel()}}
+{\footnotesize\ttfamily std\+::string Matcher\+::print\+Label (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Prints a label corresponding to the matcher type. Generic\+: \char`\"{}unidentified matcher\char`\"{}. 
+
+
+
+Reimplemented in \mbox{\hyperlink{class_special_matcher_a44785e0a60f840c8f218446245083792}{Special\+Matcher}}, \mbox{\hyperlink{class_character_matcher_a32479105f45c3c607ae160315c8918f9}{Character\+Matcher}}, and \mbox{\hyperlink{class_epsilon_matcher_a2dce126839510bc3297ed8e77ca1ebb9}{Epsilon\+Matcher}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Matcher.\+h\item 
+Matcher.\+cpp\end{DoxyCompactItemize}

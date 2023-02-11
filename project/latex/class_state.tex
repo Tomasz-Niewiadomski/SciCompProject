@@ -1,0 +1,63 @@
+\hypertarget{class_state}{}\doxysection{State Class Reference}
+\label{class_state}\index{State@{State}}
+
+
+Individual state in an NFA.  
+
+
+
+
+{\ttfamily \#include $<$State.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_state_acec8f151d743a370200a6468cdb6ed5e}\label{class_state_acec8f151d743a370200a6468cdb6ed5e}} 
+{\bfseries State} (std\+::string name)
+\item 
+void \mbox{\hyperlink{class_state_a3dcd8f6144469ef4439bbfad44e61112}{add\+Transition}} (int given\+To\+State, \mbox{\hyperlink{class_matcher}{Matcher}} \&given\+Matcher)
+\begin{DoxyCompactList}\small\item\em Adds a transition to the state\+Transitions vector of this state. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_state_a8d6b6d9a2df3a50c87d2f1df6000b9ce}\label{class_state_a8d6b6d9a2df3a50c87d2f1df6000b9ce}} 
+void {\bfseries move\+Transitions} (int traslation)
+\item 
+\mbox{\Hypertarget{class_state_a917956c54123538ead72e6908b3dd730}\label{class_state_a917956c54123538ead72e6908b3dd730}} 
+void {\bfseries my\+State} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_state_aed83304bf27c38ae673f1addd03bda5f}\label{class_state_aed83304bf27c38ae673f1addd03bda5f}} 
+std\+::string {\bfseries state\+Name}
+\begin{DoxyCompactList}\small\item\em Name of the state (used for debugging) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_state_af88dc8edeef02969d5d1c5f2ad9087bf}\label{class_state_af88dc8edeef02969d5d1c5f2ad9087bf}} 
+std\+::vector$<$ \mbox{\hyperlink{struct_transition}{Transition}} $>$ {\bfseries state\+Transitions}
+\begin{DoxyCompactList}\small\item\em Vector of transitions from this state. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Individual state in an NFA. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_state_a3dcd8f6144469ef4439bbfad44e61112}\label{class_state_a3dcd8f6144469ef4439bbfad44e61112}} 
+\index{State@{State}!addTransition@{addTransition}}
+\index{addTransition@{addTransition}!State@{State}}
+\doxysubsubsection{\texorpdfstring{addTransition()}{addTransition()}}
+{\footnotesize\ttfamily void State\+::add\+Transition (\begin{DoxyParamCaption}\item[{int}]{given\+To\+State,  }\item[{\mbox{\hyperlink{class_matcher}{Matcher}} \&}]{given\+Matcher }\end{DoxyParamCaption})}
+
+
+
+Adds a transition to the state\+Transitions vector of this state. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em given\+To\+State} & The index of a state to which the transition leads \\
+\hline
+{\em given\+Matcher} & The matcher associated with the transition \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+State.\+h\item 
+State.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,152 @@
+\hypertarget{class_special_ast}{}\doxysection{Special\+Ast Class Reference}
+\label{class_special_ast}\index{SpecialAst@{SpecialAst}}
+
+
+Special expressions such as ranges.  
+
+
+
+
+{\ttfamily \#include $<$Special\+Ast.\+h$>$}
+
+Inheritance diagram for Special\+Ast\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_special_ast}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_special_ast_a74e90e45ed259acf6579b4105eb152ae}\label{class_special_ast_a74e90e45ed259acf6579b4105eb152ae}} 
+{\bfseries Special\+Ast} (const \mbox{\hyperlink{class_special_ast}{Special\+Ast}} \&ast)
+\begin{DoxyCompactList}\small\item\em Used for creating a copy of the \mbox{\hyperlink{class_special_ast}{Special\+Ast}}. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_special_ast_af54cbe8209bd1a891b4f1c345b9384bf}{is\+An\+Ast}} () override
+\begin{DoxyCompactList}\small\item\em Overrides to return false. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_special_ast_a4140793539afef70e976a24eeefca781}{is\+It\+Special}} () override
+\begin{DoxyCompactList}\small\item\em Overrides to return true. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_special_ast_ae9829d0ce158139d2c236bde170ff128}\label{class_special_ast_ae9829d0ce158139d2c236bde170ff128}} 
+void {\bfseries set\+Ranges} (char starting, char ending, bool not\+Neg)
+\begin{DoxyCompactList}\small\item\em Creates a new range and pushes it into the vector of ranges. Takes the starting and ending characters and a boolean value that is false if the range is negated. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_special_ast_a4637c28d0f0cfda32fb9a71145be3e58}\label{class_special_ast_a4637c28d0f0cfda32fb9a71145be3e58}} 
+void {\bfseries set\+Ranges} (\mbox{\hyperlink{class_range}{Range}} range)
+\begin{DoxyCompactList}\small\item\em Pushes existing range into the vector of ranges. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_ast}{Ast}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_ast_ab7c1f29799e7864d38b1f8059143d287}\label{class_ast_ab7c1f29799e7864d38b1f8059143d287}} 
+{\bfseries Ast} (std\+::string input)
+\item 
+\mbox{\Hypertarget{class_ast_ab62ecb0595548f20b30bf55c1ec79446}\label{class_ast_ab62ecb0595548f20b30bf55c1ec79446}} 
+void {\bfseries add\+Sub\+Expr} (Ast\+Pointer point)
+\begin{DoxyCompactList}\small\item\em Pushes back a subexpression to the sub\+Expr vector. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_ast_ad81a044bc14d7525169affe3a755f741}{who\+AmI}} ()
+\begin{DoxyCompactList}\small\item\em Prints the type of the current node and the type of its subexpressions. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{class_ast_a1eb463a25956ee288b9e1db97950d301}{is\+An\+Ast}} ()
+\begin{DoxyCompactList}\small\item\em Returns true if the current node is an \mbox{\hyperlink{class_ast}{Ast}}. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{class_ast_a11ab595fd7b28c3f82c62d7d12b538c5}{is\+An\+Alternative}} ()
+\begin{DoxyCompactList}\small\item\em Returns true if the current node is an \mbox{\hyperlink{class_ast_alternative}{Ast\+Alternative}}. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{class_ast_a78165cfdefeba55b5ca97693c97ecd21}{is\+An\+Atom}} ()
+\begin{DoxyCompactList}\small\item\em Returns true if the current node is an \mbox{\hyperlink{class_atom}{Atom}}. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{class_ast_afc4433dca000b38a46509921b1c5651c}{is\+It\+Special}} ()
+\begin{DoxyCompactList}\small\item\em Returns true if the current node is a \mbox{\hyperlink{class_special_ast}{Special\+Ast}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Related Functions}
+(Note that these are not member functions.) \begin{DoxyCompactItemize}
+\item 
+std\+::string \mbox{\hyperlink{class_special_ast_a6969bb9673a0be311fc2a323fa36e4b0}{corresponding\+String}} (char c)
+\item 
+bool \mbox{\hyperlink{class_special_ast_acdf2d5866615f80881d425ed013d49f5}{is\+Reserved}} (char c)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Related Functions inherited from \mbox{\hyperlink{class_ast}{Ast}}}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{class_ast_af788df0ee49718608d928400263efee4}{find\+Closure}} (std\+::string \&input, int start)
+\item 
+bool \mbox{\hyperlink{class_ast_a12a060c30d2cce0fbf8e15fe4e04a032}{is\+AQuantifier}} (char c)
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+\doxysubsubsection*{Public Types inherited from \mbox{\hyperlink{class_ast}{Ast}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_ast_a6c766fbbbb8fdc02cdc838832b5c40c2}\label{class_ast_a6c766fbbbb8fdc02cdc838832b5c40c2}} 
+typedef std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_ast}{Ast}} $>$ {\bfseries Ast\+Pointer}
+\item 
+\mbox{\Hypertarget{class_ast_a5fdc32fcca01609c93970e4e200e78ce}\label{class_ast_a5fdc32fcca01609c93970e4e200e78ce}} 
+typedef std\+::vector$<$ Ast\+Pointer $>$ {\bfseries Ast\+Vector}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes inherited from \mbox{\hyperlink{class_ast}{Ast}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_ast_aed0f4a25fc8e58171f5f36b3d79cd52b}\label{class_ast_aed0f4a25fc8e58171f5f36b3d79cd52b}} 
+Ast\+Vector {\bfseries sub\+Expr}
+\begin{DoxyCompactList}\small\item\em A vector of Ast\+Pointers that are the subexpressions (branches) of the current expression (tree). \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_ast_a2eb1fa8764de2aada127dad9b2b5a833}\label{class_ast_a2eb1fa8764de2aada127dad9b2b5a833}} 
+std\+::string {\bfseries expression}
+\begin{DoxyCompactList}\small\item\em A string that is the expression of the current node. ~\newline
+ \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_ast_aea18ef9928f1fd24e0d8f8d22d0abb09}\label{class_ast_aea18ef9928f1fd24e0d8f8d22d0abb09}} 
+char {\bfseries quantifier}
+\begin{DoxyCompactList}\small\item\em Quantifier of a given expression. ~\newline
+ \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_ast_a82eb66f9106440573706271607b08e0c}\label{class_ast_a82eb66f9106440573706271607b08e0c}} 
+std\+::string {\bfseries type\+Name}
+\begin{DoxyCompactList}\small\item\em The name of the type of the \mbox{\hyperlink{class_ast}{Ast}}. Either \char`\"{}\+Ast\+Alternative\char`\"{} or \char`\"{}\+Ast\char`\"{} or \char`\"{}\+Atom\char`\"{} or \char`\"{}\+Special\char`\"{}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_ast_af1760ed5b0b17547d9a02a81185a995e}\label{class_ast_af1760ed5b0b17547d9a02a81185a995e}} 
+std\+::vector$<$ \mbox{\hyperlink{class_range}{Range}} $>$ {\bfseries ranges}
+\begin{DoxyCompactList}\small\item\em Vector of ranges for the special\+Ast class. We know this isn\textquotesingle{}t really correct, but it is definetely the easiest way. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Special expressions such as ranges. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_special_ast_af54cbe8209bd1a891b4f1c345b9384bf}\label{class_special_ast_af54cbe8209bd1a891b4f1c345b9384bf}} 
+\index{SpecialAst@{SpecialAst}!isAnAst@{isAnAst}}
+\index{isAnAst@{isAnAst}!SpecialAst@{SpecialAst}}
+\doxysubsubsection{\texorpdfstring{isAnAst()}{isAnAst()}}
+{\footnotesize\ttfamily bool Special\+Ast\+::is\+An\+Ast (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Overrides to return false. 
+
+
+
+Reimplemented from \mbox{\hyperlink{class_ast_a1eb463a25956ee288b9e1db97950d301}{Ast}}.
+
+\mbox{\Hypertarget{class_special_ast_a4140793539afef70e976a24eeefca781}\label{class_special_ast_a4140793539afef70e976a24eeefca781}} 
+\index{SpecialAst@{SpecialAst}!isItSpecial@{isItSpecial}}
+\index{isItSpecial@{isItSpecial}!SpecialAst@{SpecialAst}}
+\doxysubsubsection{\texorpdfstring{isItSpecial()}{isItSpecial()}}
+{\footnotesize\ttfamily bool Special\+Ast\+::is\+It\+Special (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Overrides to return true. 
+
+
+
+Reimplemented from \mbox{\hyperlink{class_ast_afc4433dca000b38a46509921b1c5651c}{Ast}}.
+
+
+
+\doxysubsection{Friends And Related Function Documentation}
+\mbox{\Hypertarget{class_special_ast_a6969bb9673a0be311fc2a323fa36e4b0}\label{class_special_ast_a6969bb9673a0be311fc2a323fa36e4b0}} 
+\index{SpecialAst@{SpecialAst}!correspondingString@{correspondingString}}
+\index{correspondingString@{correspondingString}!SpecialAst@{SpecialAst}}
+\doxysubsubsection{\texorpdfstring{correspondingString()}{correspondingString()}}
+{\footnotesize\ttfamily std\+::string corresponding\+String (\begin{DoxyParamCaption}\item[{char}]{c }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [related]}}
+
+Given the special character, returns the string corresponding to the range of this special character. \mbox{\Hypertarget{class_special_ast_acdf2d5866615f80881d425ed013d49f5}\label{class_special_ast_acdf2d5866615f80881d425ed013d49f5}} 
+\index{SpecialAst@{SpecialAst}!isReserved@{isReserved}}
+\index{isReserved@{isReserved}!SpecialAst@{SpecialAst}}
+\doxysubsubsection{\texorpdfstring{isReserved()}{isReserved()}}
+{\footnotesize\ttfamily bool is\+Reserved (\begin{DoxyParamCaption}\item[{char}]{c }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [related]}}
+
+Checks if a character is one of\+: \char`\"{}d\char`\"{}, \char`\"{}\+D\char`\"{}, \char`\"{}l\char`\"{}, \char`\"{}\+L\char`\"{}, \char`\"{}u\char`\"{}, \char`\"{}\+U\char`\"{}, \char`\"{}w\char`\"{} , \char`\"{}\+W\char`\"{}. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Special\+Ast.\+h\item 
+parser.\+cpp\item 
+Special\+Ast.\+cpp\end{DoxyCompactItemize}

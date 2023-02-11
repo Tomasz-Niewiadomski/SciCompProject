@@ -1,0 +1,30 @@
+\hypertarget{_special_matcher_8h_source}{}\doxysection{Special\+Matcher.\+h}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}Matcher.h"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}Range.h"{}}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_special_matcher}{SpecialMatcher}}\ :}
+\DoxyCodeLine{00010\ \ \ \ \ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_matcher}{Matcher}}}
+\DoxyCodeLine{00011\ \{}
+\DoxyCodeLine{00012\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \ \ \ \ \mbox{\hyperlink{class_special_matcher}{SpecialMatcher}}();}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00017\ \ \ \ \ \mbox{\hyperlink{class_special_matcher}{SpecialMatcher}}(\mbox{\hyperlink{class_matcher}{Matcher}}\&\ matcher);}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_special_matcher_a779b43849b18f93f3cf6ad21756d4148}{matches}}(std::string\ character)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00023\ \ \ \ \ std::string\ \mbox{\hyperlink{class_special_matcher_a44785e0a60f840c8f218446245083792}{printLabel}}();}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_special_matcher_ad6cc8fec30958d42ac60fd912114518e}{setRanges}}(\textcolor{keywordtype}{char}\ starting,\ \textcolor{keywordtype}{char}\ ending,\ \textcolor{keywordtype}{bool}\ notNeg);}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_special_matcher_ad6cc8fec30958d42ac60fd912114518e}{setRanges}}(\mbox{\hyperlink{class_range}{Range}}\ range);}
+\DoxyCodeLine{00030\ \};}
+\DoxyCodeLine{00031\ }
+
+\end{DoxyCode}

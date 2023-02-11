@@ -1,0 +1,46 @@
+\hypertarget{_engine_n_f_a_8h_source}{}\doxysection{Engine\+NFA.\+h}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include<string>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include<map>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}Matcher.h"{}}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}State.h"{}}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_engine_n_f_a}{EngineNFA}}}
+\DoxyCodeLine{00012\ \{}
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00016\ \ \ \ \ std::vector<State>\ \mbox{\hyperlink{class_engine_n_f_a_a38890293274c20e0226a5b0d97cd8bc5}{states}};}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_engine_n_f_a_a66e6be679063c62420b306c02e1be1e7}{startState}};}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_engine_n_f_a_a9dbada49252243fd7cb89b0aa029c59a}{endState}};}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \ \ \ \ \mbox{\hyperlink{class_engine_n_f_a}{EngineNFA}}();}
+\DoxyCodeLine{00023\ \ \ \ \ }
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_engine_n_f_a_ac67c3ddd493721bb563cb213ab5c213d}{addState}}(\mbox{\hyperlink{class_state}{State}}\ state);\ }
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_engine_n_f_a_a8b397adb6c882dba591fcfe916242581}{declareStates}}(std::vector<State>\ declaredStates);\ }
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_engine_n_f_a_a08add4bccdbfe1eda2fadfbbf511ac62}{addTransition}}(\textcolor{keywordtype}{int}\ fromState,\ \textcolor{keywordtype}{int}\ toState,\ \mbox{\hyperlink{class_matcher}{Matcher}}\ \&matcher);}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_engine_n_f_a_a116eda4640be9f2ff77f7807cd5eaa0f}{compute}}(std::string\ \textcolor{keywordtype}{string});\ }
+\DoxyCodeLine{00040\ \ \ \ \ }
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_engine_n_f_a_a9944528aeb927db76a7444b870fe7007}{concatenateNFA}}(\mbox{\hyperlink{class_engine_n_f_a}{EngineNFA}}\ nfaToConcat);}
+\DoxyCodeLine{00043\ \ \ \ \ }
+\DoxyCodeLine{00045\ \ \ \ \ \mbox{\hyperlink{class_engine_n_f_a}{EngineNFA}}(\mbox{\hyperlink{class_engine_n_f_a}{EngineNFA}}\ nfa1,\ \mbox{\hyperlink{class_engine_n_f_a}{EngineNFA}}\ nfa2);\ }
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_engine_n_f_a_a347f73fd9aaeae441110159b886679cf}{myState}}();\ }
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_engine_n_f_a_a70bed2f0f6b19a2e7d8cec75a08cbc6a}{search}}(std::string\ \textcolor{keywordtype}{string});}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00054\ \ \ \ \ std::vector<int>\ \mbox{\hyperlink{class_engine_n_f_a_a26ba3ce8c929770f33ada1742bc3ec97}{findOccurances}}(std::string\ \textcolor{keywordtype}{string});\ \textcolor{comment}{//\ returns\ a\ vector\ of\ indices\ where\ the\ regex\ is\ found\ in\ the\ input\ string\ }}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_engine_n_f_a_ab0ea6609cd3db0246d874cafba733a33}{printOccurances}}(std::string\ \textcolor{keywordtype}{string});\ \textcolor{comment}{//\ prints\ the\ indices\ where\ the\ regex\ is\ found\ in\ the\ input\ string}}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \ \ \ \ }
+\DoxyCodeLine{00060\ \};}
+\DoxyCodeLine{00061\ }
+
+\end{DoxyCode}

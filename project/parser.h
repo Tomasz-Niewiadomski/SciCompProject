@@ -1,3 +1,6 @@
+/// @brief Parses a regular expression into an AST.
+/// @details The parser is a recursive descent parser.
+
 #pragma once
 #include "Ast.h"
 #include "AstAlternative.h"
@@ -15,6 +18,7 @@ int findClosure(std::string& input, int start);
 int findSquaredClosure(std::string& input, int start);
 
 bool isAQuantifier(char c);
+
 
 bool isReserved(char c);
 
