@@ -24,17 +24,17 @@ EngineNFA engineCreator(AstPointer input) {
 
 
 	EngineNFA nfa;
-	if (input->isItSpecial()) {
+	if (input->isItSpecial()) { // returns oneStepNFA with a special matcher
 
 		SpecialMatcher matcher;
 
-		for (auto& element : input->ranges) {
-			matcher.setRanges(element);
+		for (auto& element : input->ranges) { // for each range in the vector of ranges, add it to the special matcher	
+			matcher.setRanges(element); 
 		}
 		
 		nfa = oneStepNFA(matcher);
 	}
-	if (input->isAnAtom()) {
+	if (input->isAnAtom()) { // returns oneStepNFA with a character matcher
 
 		std::string character = input->expression;
 
