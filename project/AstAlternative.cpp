@@ -1,11 +1,9 @@
-//  
 #include "AstAlternative.h"
 #include "Ast.h"
 
 typedef std::shared_ptr<Ast> AstPointer;
 
-AstAlternative::AstAlternative(AstPointer reg1, AstPointer reg2) 
-{
+AstAlternative::AstAlternative(AstPointer reg1, AstPointer reg2) {
 	
 	addSubExpr(reg1);
 
@@ -47,12 +45,4 @@ bool AstAlternative::isAnAst(){
 	 
 bool AstAlternative::isAnAlternative(){
 	return true;
-}
-
-bool AstAlternative::isAnAtom(){
-	return false;
-}
-
-bool AstAlternative::isItSpecial(){
-	return false;
 }
