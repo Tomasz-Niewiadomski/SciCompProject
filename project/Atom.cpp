@@ -2,9 +2,9 @@
 #include "Ast.h"
 #include <string>
 
-Atom::Atom(char character) 
+Atom::Atom(char caratt) 
 {
-	expression = character;
+	expression = caratt;
 	typeName = "Atom";
 	quantifier=0;
 
@@ -20,24 +20,12 @@ void Atom::whoAmI()
 
 }
 
-bool Atom::isAnAst()
-{
-	return false;
-}
-
-bool Atom::isAnAlternative()
-{
+bool Atom::isAnAst(){
 	return false;
 }
 	 
-bool Atom::isAnAtom()
-{
+
+bool Atom::isAnAtom(){
 	return true;
 }
-
-bool Atom::isItSpecial()
-{
-	return false;
-}
-
 
