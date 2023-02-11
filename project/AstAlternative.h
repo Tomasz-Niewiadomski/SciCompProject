@@ -15,6 +15,10 @@ public:
 	bool isAnAst() override;
 	 
 	bool isAnAlternative() override;
+
+    bool isAnAtom() override;
+    
+    bool isItSpecial() override;
 	
 
 };
