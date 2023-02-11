@@ -6,13 +6,17 @@ class Atom :
     public Ast
 {
 public:
-    Atom(char caratt);
+    Atom(char character);
 
     void whoAmI() override;
     
 	bool isAnAst() override;
 	
-	bool isAnAtom() override;
+	bool isAnAlternative() override;
+    
+    bool isAnAtom() override;
+
+    bool isItSpecial() override;
 
 };
 
